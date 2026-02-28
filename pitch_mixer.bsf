@@ -1,0 +1,57 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 64 64 248 184)
+	(text "pitch_mixer" (rect 69 0 125 12)(font "Arial" ))
+	(text "inst" (rect 0 104 17 116)(font "Arial" ))
+	(port
+		(pt 0 88)
+		(input)
+		(text "base_step[31..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "base_step[31..0]" (rect 21 83 103 95)(font "Arial" ))
+		(line (pt 0 88)(pt 16 88)(line_width 3))
+	)
+	(port
+		(pt 24 0)
+		(input)
+		(text "vib_ena" (rect 0 0 38 12)(font "Arial" ))
+		(text "vib_ena" (rect 16 16 28 54)(font "Arial" )(vertical))
+		(line (pt 24 0)(pt 24 16)(line_width 1))
+	)
+	(port
+		(pt 160 120)
+		(input)
+		(text "vib_wave[11..0]" (rect 0 24 79 36)(font "Arial" ))
+		(text "vib_wave[11..0]" (rect 152 17 164 96)(font "Arial" )(vertical))
+		(line (pt 160 120)(pt 160 104)(line_width 3))
+	)
+	(port
+		(pt 184 32)
+		(output)
+		(text "modulated_step[31..0]" (rect 0 0 109 12)(font "Arial" ))
+		(text "modulated_step[31..0]" (rect 51 24 160 36)(font "Arial" ))
+		(line (pt 184 32)(pt 168 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 104)(line_width 1))
+	)
+)

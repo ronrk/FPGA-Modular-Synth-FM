@@ -1,0 +1,10 @@
+module pitch_mixer (
+	input wire [31:0] base_step,		// original freq
+	input wire vib_ena,				
+	input wire [11:0] vib_wave,			// wave fro lfo
+	output wire [31:0] modulated_step	// final freq
+);
+
+	assign modulated_step = base_step + (vib_ena ? {20'd0, vib_wave} : 32'd0); 
+
+endmodule

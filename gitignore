@@ -1,0 +1,27 @@
+# ==========================================
+# Quartus FPGA Project Ignore List
+# ==========================================
+
+db/
+incremental_db/
+output_files/
+simulation/
+greybox_tmp/
+
+*.rpt
+*.smsg
+*.summary
+*.done
+*.jdi
+*.pin
+*.qws
+*.bak
+
+!*.v
+!*.sv
+!*.bdf
+!*.qpf
+!*.qsf
+!*.qip
+!*.mif
+!*.bsf

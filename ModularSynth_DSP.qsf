@@ -1,0 +1,135 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2010 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+# Date created = 12:27:48  February 28, 2026
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		ModularSynth_DSP_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name DEVICE EP3C16F484C6
+set_global_assignment -name TOP_LEVEL_ENTITY ModularSynth_DSP
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP2"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:27:48  FEBRUARY 28, 2026"
+set_global_assignment -name LAST_QUARTUS_VERSION "9.1 SP2"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_phase_accumulator -section_id eda_simulation
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL ON
+set_global_assignment -name VERILOG_FILE display_driver.v
+set_global_assignment -name VERILOG_FILE fm_modulator.v
+set_global_assignment -name VERILOG_FILE button_controller.v
+set_global_assignment -name VERILOG_FILE delay_ram.v
+set_global_assignment -name VERILOG_FILE phase_accumulator.v
+set_global_assignment -name VERILOG_FILE sine_rom.v
+set_global_assignment -name BDF_FILE ModularSynth_DSP.bdf
+set_global_assignment -name VERILOG_FILE lfo_module.v
+set_global_assignment -name VERILOG_FILE arpeggiator_module.v
+set_global_assignment -name VERILOG_FILE vco_module.v
+set_global_assignment -name VERILOG_FILE vca_module.v
+set_global_assignment -name VERILOG_FILE svf_filter_module.v
+set_global_assignment -name VERILOG_FILE delay_fx_module.v
+set_global_assignment -name VERILOG_FILE synth_controller.v
+set_global_assignment -name VERILOG_FILE pitch_mixer.v
+set_location_assignment PIN_G21 -to clk
+set_location_assignment PIN_H2 -to resetN
+set_location_assignment PIN_G3 -to btn_up
+set_location_assignment PIN_F1 -to btn_down
+set_location_assignment PIN_J6 -to wave_sel[1]
+set_location_assignment PIN_H5 -to wave_sel[0]
+set_location_assignment PIN_G5 -to arp_ena
+set_location_assignment PIN_J7 -to lpf_ena
+set_location_assignment PIN_H7 -to detune_ena
+set_location_assignment PIN_E3 -to pluck_ena
+set_location_assignment PIN_E4 -to delay_ena
+set_location_assignment PIN_D2 -to tempo_sync
+set_location_assignment PIN_J3 -to led_arp
+set_location_assignment PIN_H1 -to led_lpf
+set_location_assignment PIN_F2 -to led_detune
+set_location_assignment PIN_E1 -to led_pluck
+set_location_assignment PIN_C1 -to led_delay
+set_location_assignment PIN_B2 -to led_sync
+set_location_assignment PIN_F13 -to ones[6]
+set_location_assignment PIN_F12 -to ones[5]
+set_location_assignment PIN_G12 -to ones[4]
+set_location_assignment PIN_H13 -to ones[3]
+set_location_assignment PIN_H12 -to ones[2]
+set_location_assignment PIN_F11 -to ones[1]
+set_location_assignment PIN_E11 -to ones[0]
+set_location_assignment PIN_A15 -to tens[6]
+set_location_assignment PIN_E14 -to tens[5]
+set_location_assignment PIN_B14 -to tens[4]
+set_location_assignment PIN_A14 -to tens[3]
+set_location_assignment PIN_C13 -to tens[2]
+set_location_assignment PIN_B13 -to tens[1]
+set_location_assignment PIN_A13 -to tens[0]
+set_location_assignment PIN_F14 -to hundreds[6]
+set_location_assignment PIN_B17 -to hundreds[5]
+set_location_assignment PIN_A17 -to hundreds[4]
+set_location_assignment PIN_E15 -to hundreds[3]
+set_location_assignment PIN_B16 -to hundreds[2]
+set_location_assignment PIN_A16 -to hundreds[1]
+set_location_assignment PIN_D15 -to hundreds[0]
+set_location_assignment PIN_G15 -to thousands[6]
+set_location_assignment PIN_D19 -to thousands[5]
+set_location_assignment PIN_C19 -to thousands[4]
+set_location_assignment PIN_B19 -to thousands[3]
+set_location_assignment PIN_A19 -to thousands[2]
+set_location_assignment PIN_F15 -to thousands[1]
+set_location_assignment PIN_B18 -to thousands[0]
+set_location_assignment PIN_AB16 -to fm_out
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
+set_location_assignment PIN_H6 -to vib_ena
+set_location_assignment PIN_G4 -to trem_ena
+set_location_assignment PIN_J1 -to led_vib
+set_location_assignment PIN_J2 -to led_trem
+set_location_assignment PIN_B1 -to led_tempo
+set_global_assignment -name MISC_FILE "C:/rock/ModularSynth_DSP/ModularSynth_DSP.dpf"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

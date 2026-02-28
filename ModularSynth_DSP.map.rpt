@@ -1,0 +1,1435 @@
+Analysis & Synthesis report for ModularSynth_DSP
+Sat Feb 28 22:19:34 2026
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated
+ 15. Source assignments for vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component|altsyncram_e071:auto_generated
+ 16. Source assignments for vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component|altsyncram_e071:auto_generated
+ 17. Parameter Settings for User Entity Instance: delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component
+ 20. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Div1
+ 21. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod1
+ 22. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod3
+ 23. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Div2
+ 24. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod2
+ 25. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Div0
+ 26. Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod0
+ 27. Parameter Settings for Inferred Entity Instance: synth_controller:inst|lpm_mult:Mult0
+ 28. Parameter Settings for Inferred Entity Instance: vca_module:inst9|lpm_mult:Mult0
+ 29. Parameter Settings for Inferred Entity Instance: delay_fx_module:inst13|lpm_mult:Mult0
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. lpm_mult Parameter Settings by Entity Instance
+ 32. Port Connectivity Checks: "vco_module:inst8|sine_rom:rom_detune"
+ 33. Port Connectivity Checks: "vco_module:inst8|phase_accumulator:detune_nco"
+ 34. Port Connectivity Checks: "vco_module:inst8|phase_accumulator:main_nco"
+ 35. Port Connectivity Checks: "lfo_module:LFO_VIbrato|phase_accumulator:lfo_nco"
+ 36. Port Connectivity Checks: "arpeggiator_module:inst6|phase_accumulator:arp_nco"
+ 37. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++------------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Feb 28 22:19:34 2026        ;
+; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                      ; ModularSynth_DSP                             ;
+; Top-level Entity Name              ; ModularSynth_DSP                             ;
+; Family                             ; Cyclone III                                  ;
+; Total logic elements               ; 3,361                                        ;
+;     Total combinational functions  ; 3,355                                        ;
+;     Dedicated logic registers      ; 757                                          ;
+; Total registers                    ; 757                                          ;
+; Total pins                         ; 52                                           ;
+; Total virtual pins                 ; 0                                            ;
+; Total memory bits                  ; 265,984                                      ;
+; Embedded Multiplier 9-bit elements ; 2                                            ;
+; Total PLLs                         ; 0                                            ;
++------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; ModularSynth_DSP   ; ModularSynth_DSP   ;
+; Family name                                                                ; Cyclone III        ; Stratix II         ;
+; Verilog Version                                                            ; SystemVerilog_2005 ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_2008          ; VHDL_1993          ;
+; Type of Retiming Performed During Resynthesis                              ; Full               ;                    ;
+; Resynthesis Optimization Effort                                            ; Normal             ;                    ;
+; Physical Synthesis Level for Resynthesis                                   ; Normal             ;                    ;
+; Use Generated Physical Constraints File                                    ; On                 ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                    ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------+
+; display_driver.v                 ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/display_driver.v                       ;
+; fm_modulator.v                   ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/fm_modulator.v                         ;
+; button_controller.v              ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/button_controller.v                    ;
+; delay_ram.v                      ; yes             ; User Wizard-Generated File             ; C:/rock/ModularSynth_DSP/delay_ram.v                            ;
+; phase_accumulator.v              ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/phase_accumulator.v                    ;
+; sine_rom.v                       ; yes             ; User Wizard-Generated File             ; C:/rock/ModularSynth_DSP/sine_rom.v                             ;
+; ModularSynth_DSP.bdf             ; yes             ; User Block Diagram/Schematic File      ; C:/rock/ModularSynth_DSP/ModularSynth_DSP.bdf                   ;
+; lfo_module.v                     ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/lfo_module.v                           ;
+; arpeggiator_module.v             ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/arpeggiator_module.v                   ;
+; vco_module.v                     ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/vco_module.v                           ;
+; vca_module.v                     ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/vca_module.v                           ;
+; svf_filter_module.v              ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/svf_filter_module.v                    ;
+; delay_fx_module.v                ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/delay_fx_module.v                      ;
+; synth_controller.v               ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/synth_controller.v                     ;
+; pitch_mixer.v                    ; yes             ; User Verilog HDL File                  ; C:/rock/ModularSynth_DSP/pitch_mixer.v                          ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf  ;
+; db/altsyncram_sdp1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/altsyncram_sdp1.tdf                 ;
+; db/decode_dra.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/decode_dra.tdf                      ;
+; db/decode_67a.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/decode_67a.tdf                      ;
+; db/mux_tlb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/mux_tlb.tdf                         ;
+; db/altsyncram_e071.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/altsyncram_e071.tdf                 ;
+; sine.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/rock/ModularSynth_DSP/sine.mif                               ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_divide.tdf  ;
+; db/lpm_divide_shm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/lpm_divide_shm.tdf                  ;
+; db/sign_div_unsign_tlh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/sign_div_unsign_tlh.tdf             ;
+; db/alt_u_div_56f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/alt_u_div_56f.tdf                   ;
+; db/add_sub_unc.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/add_sub_unc.tdf                     ;
+; db/add_sub_vnc.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/add_sub_vnc.tdf                     ;
+; db/lpm_divide_s9m.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/lpm_divide_s9m.tdf                  ;
+; db/sign_div_unsign_qlh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/sign_div_unsign_qlh.tdf             ;
+; db/alt_u_div_v5f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/alt_u_div_v5f.tdf                   ;
+; db/lpm_divide_phm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/lpm_divide_phm.tdf                  ;
+; db/lpm_divide_6jm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/lpm_divide_6jm.tdf                  ;
+; db/sign_div_unsign_7nh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/sign_div_unsign_7nh.tdf             ;
+; db/alt_u_div_p8f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/alt_u_div_p8f.tdf                   ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_mult.tdf    ;
+; multcore.tdf                     ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/multcore.tdf    ;
+; mpar_add.tdf                     ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/mpar_add.tdf    ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_add_sub.tdf ;
+; db/add_sub_ffh.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/add_sub_ffh.tdf                     ;
+; db/add_sub_jfh.tdf               ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/add_sub_jfh.tdf                     ;
+; altshift.tdf                     ; yes             ; Megafunction                           ; c:/altera/91sp2/quartus/libraries/megafunctions/altshift.tdf    ;
+; db/mult_02t.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/mult_02t.tdf                        ;
+; db/mult_o1t.tdf                  ; yes             ; Auto-Generated Megafunction            ; C:/rock/ModularSynth_DSP/db/mult_o1t.tdf                        ;
++----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 3,361     ;
+;                                             ;           ;
+; Total combinational functions               ; 3355      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1000      ;
+;     -- 3 input functions                    ; 1514      ;
+;     -- <=2 input functions                  ; 841       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 2044      ;
+;     -- arithmetic mode                      ; 1311      ;
+;                                             ;           ;
+; Total registers                             ; 757       ;
+;     -- Dedicated logic registers            ; 757       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 52        ;
+; Total memory bits                           ; 265984    ;
+; Embedded Multiplier 9-bit elements          ; 2         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 804       ;
+; Total fan-out                               ; 14053     ;
+; Average fan-out                             ; 3.29      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                           ;
++---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                            ; Library Name ;
++---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |ModularSynth_DSP                                 ; 3355 (1)          ; 757 (0)      ; 265984      ; 2            ; 2       ; 0         ; 52   ; 0            ; |ModularSynth_DSP                                                                                                                                              ; work         ;
+;    |arpeggiator_module:inst6|                     ; 163 (131)         ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|arpeggiator_module:inst6                                                                                                                     ;              ;
+;       |phase_accumulator:arp_nco|                 ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|arpeggiator_module:inst6|phase_accumulator:arp_nco                                                                                           ;              ;
+;    |delay_fx_module:inst13|                       ; 183 (158)         ; 43 (41)      ; 262144      ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13                                                                                                                       ;              ;
+;       |delay_ram:delay_inst|                      ; 25 (0)            ; 2 (0)        ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst                                                                                                  ;              ;
+;          |altsyncram:altsyncram_component|        ; 25 (0)            ; 2 (0)        ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component                                                                  ;              ;
+;             |altsyncram_sdp1:auto_generated|      ; 25 (0)            ; 2 (2)        ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated                                   ;              ;
+;                |decode_67a:rden_decode_b|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|decode_67a:rden_decode_b          ;              ;
+;                |decode_dra:decode2|               ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|decode_dra:decode2                ;              ;
+;                |mux_tlb:mux3|                     ; 17 (17)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|mux_tlb:mux3                      ;              ;
+;       |lpm_mult:Mult0|                            ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|lpm_mult:Mult0                                                                                                        ;              ;
+;          |mult_o1t:auto_generated|                ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|lpm_mult:Mult0|mult_o1t:auto_generated                                                                                ;              ;
+;    |display_driver:inst3|                         ; 1049 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3                                                                                                                         ;              ;
+;       |bcd_to_7seg:dec_hu|                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|bcd_to_7seg:dec_hu                                                                                                      ;              ;
+;       |bcd_to_7seg:dec_on|                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|bcd_to_7seg:dec_on                                                                                                      ;              ;
+;       |bcd_to_7seg:dec_te|                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|bcd_to_7seg:dec_te                                                                                                      ;              ;
+;       |bcd_to_7seg:dec_th|                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|bcd_to_7seg:dec_th                                                                                                      ;              ;
+;       |lpm_divide:Div0|                           ; 190 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div0                                                                                                         ;              ;
+;          |lpm_divide_6jm:auto_generated|          ; 190 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div0|lpm_divide_6jm:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_7nh:divider|         ; 190 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div0|lpm_divide_6jm:auto_generated|sign_div_unsign_7nh:divider                                               ;              ;
+;                |alt_u_div_p8f:divider|            ; 190 (190)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div0|lpm_divide_6jm:auto_generated|sign_div_unsign_7nh:divider|alt_u_div_p8f:divider                         ;              ;
+;       |lpm_divide:Div1|                           ; 208 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div1                                                                                                         ;              ;
+;          |lpm_divide_shm:auto_generated|          ; 208 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div1|lpm_divide_shm:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_tlh:divider|         ; 208 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div1|lpm_divide_shm:auto_generated|sign_div_unsign_tlh:divider                                               ;              ;
+;                |alt_u_div_56f:divider|            ; 208 (208)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div1|lpm_divide_shm:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_56f:divider                         ;              ;
+;       |lpm_divide:Div2|                           ; 169 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div2                                                                                                         ;              ;
+;          |lpm_divide_phm:auto_generated|          ; 169 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div2|lpm_divide_phm:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_qlh:divider|         ; 169 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div2|lpm_divide_phm:auto_generated|sign_div_unsign_qlh:divider                                               ;              ;
+;                |alt_u_div_v5f:divider|            ; 169 (169)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Div2|lpm_divide_phm:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider                         ;              ;
+;       |lpm_divide:Mod0|                           ; 52 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod0                                                                                                         ;              ;
+;          |lpm_divide_s9m:auto_generated|          ; 52 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_qlh:divider|         ; 52 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider                                               ;              ;
+;                |alt_u_div_v5f:divider|            ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider                         ;              ;
+;       |lpm_divide:Mod1|                           ; 94 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod1                                                                                                         ;              ;
+;          |lpm_divide_s9m:auto_generated|          ; 94 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_qlh:divider|         ; 94 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider                                               ;              ;
+;                |alt_u_div_v5f:divider|            ; 94 (94)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider                         ;              ;
+;       |lpm_divide:Mod2|                           ; 136 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod2                                                                                                         ;              ;
+;          |lpm_divide_s9m:auto_generated|          ; 136 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_qlh:divider|         ; 136 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider                                               ;              ;
+;                |alt_u_div_v5f:divider|            ; 136 (136)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider                         ;              ;
+;       |lpm_divide:Mod3|                           ; 172 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod3                                                                                                         ;              ;
+;          |lpm_divide_s9m:auto_generated|          ; 172 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod3|lpm_divide_s9m:auto_generated                                                                           ;              ;
+;             |sign_div_unsign_qlh:divider|         ; 172 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod3|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider                                               ;              ;
+;                |alt_u_div_v5f:divider|            ; 172 (172)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod3|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider                         ;              ;
+;    |fm_modulator:inst14|                          ; 65 (65)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|fm_modulator:inst14                                                                                                                          ;              ;
+;    |lfo_module:LFO_Tremolo|                       ; 32 (0)            ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|lfo_module:LFO_Tremolo                                                                                                                       ;              ;
+;       |phase_accumulator:lfo_nco|                 ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|lfo_module:LFO_Tremolo|phase_accumulator:lfo_nco                                                                                             ;              ;
+;    |lfo_module:LFO_VIbrato|                       ; 44 (12)           ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|lfo_module:LFO_VIbrato                                                                                                                       ;              ;
+;       |phase_accumulator:lfo_nco|                 ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|lfo_module:LFO_VIbrato|phase_accumulator:lfo_nco                                                                                             ;              ;
+;    |pitch_mixer:inst5|                            ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|pitch_mixer:inst5                                                                                                                            ;              ;
+;    |svf_filter_module:inst11|                     ; 567 (567)         ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|svf_filter_module:inst11                                                                                                                     ;              ;
+;    |synth_controller:inst|                        ; 1001 (866)        ; 437 (373)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst                                                                                                                        ;              ;
+;       |button_controller:btn_down_inst|           ; 51 (51)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|button_controller:btn_down_inst                                                                                        ;              ;
+;       |button_controller:btn_up_inst|             ; 51 (51)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|button_controller:btn_up_inst                                                                                          ;              ;
+;       |lpm_mult:Mult0|                            ; 33 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0                                                                                                         ;              ;
+;          |multcore:mult_core|                     ; 33 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core                                                                                      ;              ;
+;             |mpar_add:padder|                     ; 19 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                                      ;              ;
+;                |lpm_add_sub:adder[1]|             ; 8 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]                                                 ;              ;
+;                   |add_sub_ffh:auto_generated|    ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]|add_sub_ffh:auto_generated                      ;              ;
+;                |mpar_add:sub_par_add|             ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add                                                 ;              ;
+;                   |lpm_add_sub:adder[0]|          ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]                            ;              ;
+;                      |add_sub_jfh:auto_generated| ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]|add_sub_jfh:auto_generated ;              ;
+;    |vca_module:inst9|                             ; 49 (49)           ; 25 (25)      ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vca_module:inst9                                                                                                                             ;              ;
+;       |lpm_mult:Mult0|                            ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vca_module:inst9|lpm_mult:Mult0                                                                                                              ;              ;
+;          |mult_02t:auto_generated|                ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vca_module:inst9|lpm_mult:Mult0|mult_02t:auto_generated                                                                                      ;              ;
+;    |vco_module:inst8|                             ; 139 (75)          ; 63 (0)       ; 3840        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8                                                                                                                             ;              ;
+;       |phase_accumulator:detune_nco|              ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|phase_accumulator:detune_nco                                                                                                ;              ;
+;       |phase_accumulator:main_nco|                ; 32 (32)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|phase_accumulator:main_nco                                                                                                  ;              ;
+;       |sine_rom:rom_detune|                       ; 0 (0)             ; 0 (0)        ; 1792        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|sine_rom:rom_detune                                                                                                         ;              ;
+;          |altsyncram:altsyncram_component|        ; 0 (0)             ; 0 (0)        ; 1792        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component                                                                         ;              ;
+;             |altsyncram_e071:auto_generated|      ; 0 (0)             ; 0 (0)        ; 1792        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component|altsyncram_e071:auto_generated                                          ;              ;
+;       |sine_rom:rom_main|                         ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|sine_rom:rom_main                                                                                                           ;              ;
+;          |altsyncram:altsyncram_component|        ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component                                                                           ;              ;
+;             |altsyncram_e071:auto_generated|      ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component|altsyncram_e071:auto_generated                                            ;              ;
++---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+----------+
+; Name                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF      ;
++-----------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+----------+
+; delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32768        ; 8            ; 32768        ; 8            ; 262144 ; None     ;
+; vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component|altsyncram_e071:auto_generated|ALTSYNCRAM        ; AUTO ; ROM              ; 256          ; 8            ; --           ; --           ; 2048   ; sine.mif ;
+; vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component|altsyncram_e071:auto_generated|ALTSYNCRAM          ; AUTO ; ROM              ; 256          ; 8            ; --           ; --           ; 2048   ; sine.mif ;
++-----------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+----------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 2           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 2           ;
+; Signed Embedded Multipliers           ; 2           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                ;
++----------------------------------------------------------+------------------------------------------------------------------------+
+; Register name                                            ; Reason for Removal                                                     ;
++----------------------------------------------------------+------------------------------------------------------------------------+
+; vco_module:inst8|phase_accumulator:main_nco|phase_out[0] ; Merged with vco_module:inst8|phase_accumulator:detune_nco|phase_out[0] ;
+; synth_controller:inst|blink_counter[0]                   ; Merged with vca_module:inst9|decay_timer[0]                            ;
+; synth_controller:inst|arp_hz_out[0]                      ; Merged with synth_controller:inst|arp_step_out[0]                      ;
+; synth_controller:inst|res_shift_out[0]                   ; Merged with synth_controller:inst|res_val_out[0]                       ;
+; synth_controller:inst|detune_offset_out[1]               ; Merged with synth_controller:inst|detune_val_out[0]                    ;
+; synth_controller:inst|res_shift_out[1]                   ; Merged with synth_controller:inst|res_val_out[1]                       ;
+; synth_controller:inst|blink_counter[1]                   ; Merged with vca_module:inst9|decay_timer[1]                            ;
+; synth_controller:inst|blink_counter[2]                   ; Merged with vca_module:inst9|decay_timer[2]                            ;
+; synth_controller:inst|res_shift_out[2]                   ; Merged with synth_controller:inst|res_val_out[2]                       ;
+; synth_controller:inst|blink_counter[3]                   ; Merged with vca_module:inst9|decay_timer[3]                            ;
+; synth_controller:inst|res_shift_out[3]                   ; Merged with synth_controller:inst|res_val_out[3]                       ;
+; synth_controller:inst|blink_counter[4]                   ; Merged with vca_module:inst9|decay_timer[4]                            ;
+; synth_controller:inst|blink_counter[5]                   ; Merged with vca_module:inst9|decay_timer[5]                            ;
+; synth_controller:inst|blink_counter[6]                   ; Merged with vca_module:inst9|decay_timer[6]                            ;
+; synth_controller:inst|blink_counter[7]                   ; Merged with vca_module:inst9|decay_timer[7]                            ;
+; synth_controller:inst|blink_counter[8]                   ; Merged with vca_module:inst9|decay_timer[8]                            ;
+; synth_controller:inst|blink_counter[9]                   ; Merged with vca_module:inst9|decay_timer[9]                            ;
+; synth_controller:inst|blink_counter[10]                  ; Merged with vca_module:inst9|decay_timer[10]                           ;
+; synth_controller:inst|blink_counter[11]                  ; Merged with vca_module:inst9|decay_timer[11]                           ;
+; synth_controller:inst|blink_counter[12]                  ; Merged with vca_module:inst9|decay_timer[12]                           ;
+; synth_controller:inst|blink_counter[13]                  ; Merged with vca_module:inst9|decay_timer[13]                           ;
+; synth_controller:inst|blink_counter[14]                  ; Merged with vca_module:inst9|decay_timer[14]                           ;
+; synth_controller:inst|lfo_sync_div[15]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|trem_sync_div[15]                  ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|lfo_sync_div[14]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|trem_sync_div[13..14]              ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|lfo_sync_div[13]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|trem_sync_div[12]                  ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|lfo_sync_div[12]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|trem_sync_div[11]                  ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|lfo_sync_div[11]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|trem_sync_div[10]                  ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|lfo_sync_div[10]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|trem_sync_div[9]                   ; Stuck at GND due to stuck port data_in                                 ;
+; synth_controller:inst|lfo_sync_div[9]                    ; Stuck at GND due to stuck port data_in                                 ;
+; Total Number of Removed Registers = 36                   ;                                                                        ;
++----------------------------------------------------------+------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 757   ;
+; Number of registers using Synchronous Clear  ; 261   ;
+; Number of registers using Synchronous Load   ; 50    ;
+; Number of registers using Asynchronous Clear ; 563   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 363   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------+
+; Inverted Register Statistics                                           ;
++--------------------------------------------------------------+---------+
+; Inverted Register                                            ; Fan out ;
++--------------------------------------------------------------+---------+
+; synth_controller:inst|delay_time_out[13]                     ; 11      ;
+; synth_controller:inst|freq_hz_out[8]                         ; 2       ;
+; synth_controller:inst|delay_time_out[12]                     ; 12      ;
+; synth_controller:inst|freq_hz_out[7]                         ; 2       ;
+; synth_controller:inst|delay_time_out[11]                     ; 12      ;
+; synth_controller:inst|delay_time_out[10]                     ; 11      ;
+; synth_controller:inst|freq_hz_out[5]                         ; 2       ;
+; synth_controller:inst|delay_time_out[9]                      ; 12      ;
+; synth_controller:inst|freq_hz_out[4]                         ; 2       ;
+; synth_controller:inst|freq_hz_out[3]                         ; 2       ;
+; synth_controller:inst|detune_val_out[2]                      ; 4       ;
+; synth_controller:inst|delay_time_out[7]                      ; 9       ;
+; synth_controller:inst|lfo_free_hz[2]                         ; 3       ;
+; synth_controller:inst|trem_free_hz[2]                        ; 4       ;
+; synth_controller:inst|delay_fb_out[2]                        ; 12      ;
+; synth_controller:inst|trem_free_hz[0]                        ; 3       ;
+; synth_controller:inst|detune_val_out[0]                      ; 6       ;
+; synth_controller:inst|lfo_free_hz[0]                         ; 2       ;
+; synth_controller:inst|arp_hz_out[1]                          ; 3       ;
+; synth_controller:inst|step_size_out[12]                      ; 5       ;
+; synth_controller:inst|step_size_out[15]                      ; 5       ;
+; synth_controller:inst|step_size_out[9]                       ; 5       ;
+; synth_controller:inst|step_size_out[5]                       ; 5       ;
+; synth_controller:inst|step_size_out[7]                       ; 5       ;
+; synth_controller:inst|step_size_out[8]                       ; 5       ;
+; synth_controller:inst|step_size_out[0]                       ; 6       ;
+; synth_controller:inst|step_size_out[1]                       ; 4       ;
+; delay_fx_module:inst13|current_delay_time[13]                ; 4       ;
+; delay_fx_module:inst13|current_delay_time[12]                ; 4       ;
+; delay_fx_module:inst13|current_delay_time[11]                ; 4       ;
+; delay_fx_module:inst13|current_delay_time[10]                ; 4       ;
+; delay_fx_module:inst13|current_delay_time[9]                 ; 4       ;
+; delay_fx_module:inst13|current_delay_time[7]                 ; 4       ;
+; synth_controller:inst|lpf_shift_out[3]                       ; 84      ;
+; synth_controller:inst|detune_offset_out[8]                   ; 2       ;
+; synth_controller:inst|detune_offset_out[7]                   ; 2       ;
+; synth_controller:inst|detune_offset_out[5]                   ; 2       ;
+; synth_controller:inst|detune_offset_out[3]                   ; 2       ;
+; synth_controller:inst|detune_offset_out[2]                   ; 2       ;
+; synth_controller:inst|arp_step_out[6]                        ; 10      ;
+; synth_controller:inst|trem_free_step[8]                      ; 2       ;
+; synth_controller:inst|trem_free_step[7]                      ; 2       ;
+; synth_controller:inst|arp_step_out[4]                        ; 10      ;
+; synth_controller:inst|trem_free_step[5]                      ; 2       ;
+; synth_controller:inst|arp_step_out[2]                        ; 10      ;
+; synth_controller:inst|trem_free_step[3]                      ; 2       ;
+; synth_controller:inst|trem_free_step[2]                      ; 2       ;
+; synth_controller:inst|lfo_free_step[8]                       ; 2       ;
+; synth_controller:inst|lfo_free_step[7]                       ; 2       ;
+; synth_controller:inst|lfo_free_step[5]                       ; 2       ;
+; synth_controller:inst|lfo_free_step[3]                       ; 2       ;
+; synth_controller:inst|lfo_free_step[2]                       ; 2       ;
+; synth_controller:inst|lpf_val_out[3]                         ; 4       ;
+; synth_controller:inst|trem_sync_div[3]                       ; 9       ;
+; synth_controller:inst|lfo_sync_div[3]                        ; 9       ;
+; synth_controller:inst|res_val_out[0]                         ; 34      ;
+; synth_controller:inst|button_controller:btn_down_inst|sync_1 ; 30      ;
+; synth_controller:inst|button_controller:btn_up_inst|sync_1   ; 30      ;
+; synth_controller:inst|button_controller:btn_up_inst|sync_2   ; 1       ;
+; synth_controller:inst|button_controller:btn_down_inst|sync_2 ; 1       ;
+; synth_controller:inst|button_controller:btn_down_inst|sync_0 ; 1       ;
+; synth_controller:inst|button_controller:btn_up_inst|sync_0   ; 1       ;
+; Total number of inverted registers = 62                      ;         ;
++--------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; 3:1                ; 34 bits   ; 68 LEs        ; 0 LEs                ; 68 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|step_size_out[27]       ;
+; 3:1                ; 56 bits   ; 112 LEs       ; 0 LEs                ; 112 LEs                ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_free_hz[11]        ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_sync_div[8]        ;
+; 3:1                ; 39 bits   ; 78 LEs        ; 0 LEs                ; 78 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|detune_offset_out[4]    ;
+; 3:1                ; 56 bits   ; 112 LEs       ; 0 LEs                ; 112 LEs                ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_free_step[17]       ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_sync_div[14]        ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|res_val_out[7]          ;
+; 3:1                ; 43 bits   ; 86 LEs        ; 0 LEs                ; 86 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|arp_hz_out[14]          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lpf_val_out[5]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|vca_module:inst9|pluck_env[3]                 ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |ModularSynth_DSP|delay_fx_module:inst13|current_delay_time[14] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|edit_mode[3]            ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|step_size_out[8]        ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_free_step[2]       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|detune_offset_out[7]    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_free_step[3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|arp_step_out[4]         ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|delay_time_out[7]       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|delay_fb_out[1]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |ModularSynth_DSP|delay_fx_module:inst13|current_delay_time[10] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight0          ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|vco_module:inst8|Mux0                         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight1          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|audio_out[4]         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|delay_fx_module:inst13|audio_out[3]           ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|delay_fx_module:inst13|ram_data_in[0]         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight0          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|vca_module:inst9|current_volume[0]            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight2          ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; No         ; |ModularSynth_DSP|arpeggiator_module:inst6|arp_out_step[12]     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight0          ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight1          ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 87 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|trem_step_out[25]       ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 87 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|lfo_step_out[5]         ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[14]      ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[10]      ;
+; 11:1               ; 6 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[5]       ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[3]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                  ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                   ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component|altsyncram_e071:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                         ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                          ;
++---------------------------------+--------------------+------+------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component|altsyncram_e071:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                           ;
++---------------------------------+--------------------+------+--------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                            ;
++---------------------------------+--------------------+------+--------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                         ;
++------------------------------------+----------------------+--------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                   ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                 ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                 ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                               ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                      ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                      ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                               ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                               ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                                               ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                      ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                      ;
+; WIDTH_B                            ; 8                    ; Signed Integer                                               ;
+; WIDTHAD_B                          ; 15                   ; Signed Integer                                               ;
+; NUMWORDS_B                         ; 32768                ; Signed Integer                                               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                      ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                      ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                      ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                      ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                               ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                      ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                      ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                      ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                      ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                      ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                      ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                      ;
+; DEVICE_FAMILY                      ; Cyclone III          ; Untyped                                                      ;
+; CBXI_PARAMETER                     ; altsyncram_sdp1      ; Untyped                                                      ;
++------------------------------------+----------------------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                ;
++------------------------------------+----------------------+-----------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                             ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                             ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                      ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                      ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                      ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                             ;
+; WIDTH_B                            ; 1                    ; Untyped                                             ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                             ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                             ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                             ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                             ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                             ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                             ;
+; INIT_FILE                          ; sine.mif             ; Untyped                                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                             ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                             ;
+; DEVICE_FAMILY                      ; Cyclone III          ; Untyped                                             ;
+; CBXI_PARAMETER                     ; altsyncram_e071      ; Untyped                                             ;
++------------------------------------+----------------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                  ;
++------------------------------------+----------------------+-------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                               ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                        ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                               ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                               ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                        ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                        ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                        ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                                               ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                               ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                               ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                               ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                               ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                               ;
+; WIDTH_B                            ; 1                    ; Untyped                                               ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                               ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                               ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                               ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                               ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                               ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                               ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                               ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                               ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                               ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                               ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                               ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                               ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                               ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                               ;
+; INIT_FILE                          ; sine.mif             ; Untyped                                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                               ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                               ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                               ;
+; DEVICE_FAMILY                      ; Cyclone III          ; Untyped                                               ;
+; CBXI_PARAMETER                     ; altsyncram_e071      ; Untyped                                               ;
++------------------------------------+----------------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 7              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_shm ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_s9m ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod3 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_s9m ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Div2 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_phm ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod2 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_s9m ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 10             ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_6jm ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_driver:inst3|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_s9m ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: synth_controller:inst|lpm_mult:Mult0 ;
++------------------------------------------------+-------------+------------------------+
+; Parameter Name                                 ; Value       ; Type                   ;
++------------------------------------------------+-------------+------------------------+
+; AUTO_CARRY_CHAINS                              ; ON          ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS                           ; OFF         ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS                            ; ON          ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF         ; IGNORE_CASCADE         ;
+; LPM_WIDTHA                                     ; 15          ; Untyped                ;
+; LPM_WIDTHB                                     ; 11          ; Untyped                ;
+; LPM_WIDTHP                                     ; 26          ; Untyped                ;
+; LPM_WIDTHR                                     ; 26          ; Untyped                ;
+; LPM_WIDTHS                                     ; 1           ; Untyped                ;
+; LPM_REPRESENTATION                             ; UNSIGNED    ; Untyped                ;
+; LPM_PIPELINE                                   ; 0           ; Untyped                ;
+; LATENCY                                        ; 0           ; Untyped                ;
+; INPUT_A_IS_CONSTANT                            ; NO          ; Untyped                ;
+; INPUT_B_IS_CONSTANT                            ; YES         ; Untyped                ;
+; USE_EAB                                        ; OFF         ; Untyped                ;
+; MAXIMIZE_SPEED                                 ; 5           ; Untyped                ;
+; DEVICE_FAMILY                                  ; Cyclone III ; Untyped                ;
+; CARRY_CHAIN                                    ; MANUAL      ; Untyped                ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT         ; TECH_MAPPER_APEX20K    ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO        ; Untyped                ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0           ; Untyped                ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0           ; Untyped                ;
+; CBXI_PARAMETER                                 ; NOTHING     ; Untyped                ;
+; INPUT_A_FIXED_VALUE                            ; Bx          ; Untyped                ;
+; INPUT_B_FIXED_VALUE                            ; Bx          ; Untyped                ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF         ; Untyped                ;
++------------------------------------------------+-------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vca_module:inst9|lpm_mult:Mult0   ;
++------------------------------------------------+-------------+---------------------+
+; Parameter Name                                 ; Value       ; Type                ;
++------------------------------------------------+-------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON          ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF         ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON          ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF         ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8           ; Untyped             ;
+; LPM_WIDTHB                                     ; 9           ; Untyped             ;
+; LPM_WIDTHP                                     ; 17          ; Untyped             ;
+; LPM_WIDTHR                                     ; 17          ; Untyped             ;
+; LPM_WIDTHS                                     ; 1           ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED      ; Untyped             ;
+; LPM_PIPELINE                                   ; 0           ; Untyped             ;
+; LATENCY                                        ; 0           ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO          ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO          ; Untyped             ;
+; USE_EAB                                        ; OFF         ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5           ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone III ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL      ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT         ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0           ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0           ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_02t    ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx          ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx          ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF         ; Untyped             ;
++------------------------------------------------+-------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: delay_fx_module:inst13|lpm_mult:Mult0 ;
++------------------------------------------------+-------------+-------------------------+
+; Parameter Name                                 ; Value       ; Type                    ;
++------------------------------------------------+-------------+-------------------------+
+; AUTO_CARRY_CHAINS                              ; ON          ; AUTO_CARRY              ;
+; IGNORE_CARRY_BUFFERS                           ; OFF         ; IGNORE_CARRY            ;
+; AUTO_CASCADE_CHAINS                            ; ON          ; AUTO_CASCADE            ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF         ; IGNORE_CASCADE          ;
+; LPM_WIDTHA                                     ; 8           ; Untyped                 ;
+; LPM_WIDTHB                                     ; 5           ; Untyped                 ;
+; LPM_WIDTHP                                     ; 13          ; Untyped                 ;
+; LPM_WIDTHR                                     ; 13          ; Untyped                 ;
+; LPM_WIDTHS                                     ; 1           ; Untyped                 ;
+; LPM_REPRESENTATION                             ; SIGNED      ; Untyped                 ;
+; LPM_PIPELINE                                   ; 0           ; Untyped                 ;
+; LATENCY                                        ; 0           ; Untyped                 ;
+; INPUT_A_IS_CONSTANT                            ; NO          ; Untyped                 ;
+; INPUT_B_IS_CONSTANT                            ; NO          ; Untyped                 ;
+; USE_EAB                                        ; OFF         ; Untyped                 ;
+; MAXIMIZE_SPEED                                 ; 5           ; Untyped                 ;
+; DEVICE_FAMILY                                  ; Cyclone III ; Untyped                 ;
+; CARRY_CHAIN                                    ; MANUAL      ; Untyped                 ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT         ; TECH_MAPPER_APEX20K     ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO        ; Untyped                 ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0           ; Untyped                 ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0           ; Untyped                 ;
+; CBXI_PARAMETER                                 ; mult_o1t    ; Untyped                 ;
+; INPUT_A_FIXED_VALUE                            ; Bx          ; Untyped                 ;
+; INPUT_B_FIXED_VALUE                            ; Bx          ; Untyped                 ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF         ; Untyped                 ;
++------------------------------------------------+-------------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                        ;
++-------------------------------------------+-----------------------------------------------------------------------------+
+; Name                                      ; Value                                                                       ;
++-------------------------------------------+-----------------------------------------------------------------------------+
+; Number of entity instances                ; 3                                                                           ;
+; Entity Instance                           ; delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                   ;
+;     -- WIDTH_A                            ; 8                                                                           ;
+;     -- NUMWORDS_A                         ; 32768                                                                       ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                ;
+;     -- WIDTH_B                            ; 8                                                                           ;
+;     -- NUMWORDS_B                         ; 32768                                                                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                   ;
+; Entity Instance                           ; vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component          ;
+;     -- OPERATION_MODE                     ; ROM                                                                         ;
+;     -- WIDTH_A                            ; 8                                                                           ;
+;     -- NUMWORDS_A                         ; 256                                                                         ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                      ;
+;     -- WIDTH_B                            ; 1                                                                           ;
+;     -- NUMWORDS_B                         ; 1                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                   ;
+; Entity Instance                           ; vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component        ;
+;     -- OPERATION_MODE                     ; ROM                                                                         ;
+;     -- WIDTH_A                            ; 8                                                                           ;
+;     -- NUMWORDS_A                         ; 256                                                                         ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                                                      ;
+;     -- WIDTH_B                            ; 1                                                                           ;
+;     -- NUMWORDS_B                         ; 1                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                   ;
++-------------------------------------------+-----------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                ;
++---------------------------------------+---------------------------------------+
+; Name                                  ; Value                                 ;
++---------------------------------------+---------------------------------------+
+; Number of entity instances            ; 3                                     ;
+; Entity Instance                       ; synth_controller:inst|lpm_mult:Mult0  ;
+;     -- LPM_WIDTHA                     ; 15                                    ;
+;     -- LPM_WIDTHB                     ; 11                                    ;
+;     -- LPM_WIDTHP                     ; 26                                    ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                              ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                    ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                   ;
+;     -- USE_EAB                        ; OFF                                   ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                  ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                    ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                    ;
+; Entity Instance                       ; vca_module:inst9|lpm_mult:Mult0       ;
+;     -- LPM_WIDTHA                     ; 8                                     ;
+;     -- LPM_WIDTHB                     ; 9                                     ;
+;     -- LPM_WIDTHP                     ; 17                                    ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                    ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                    ;
+;     -- USE_EAB                        ; OFF                                   ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                  ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                    ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                    ;
+; Entity Instance                       ; delay_fx_module:inst13|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                     ;
+;     -- LPM_WIDTHB                     ; 5                                     ;
+;     -- LPM_WIDTHP                     ; 13                                    ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                    ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                    ;
+;     -- USE_EAB                        ; OFF                                   ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                  ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                    ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                    ;
++---------------------------------------+---------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vco_module:inst8|sine_rom:rom_detune"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; q[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vco_module:inst8|phase_accumulator:detune_nco"                                                  ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; phase_out[23..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vco_module:inst8|phase_accumulator:main_nco"                                                    ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; phase_out[23..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "lfo_module:LFO_VIbrato|phase_accumulator:lfo_nco"                                               ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; phase_out[18..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "arpeggiator_module:inst6|phase_accumulator:arp_nco"                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; phase_out[29..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Sat Feb 28 22:19:13 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ModularSynth_DSP -c ModularSynth_DSP
+Info: Found 2 design units, including 2 entities, in source file display_driver.v
+    Info: Found entity 1: display_driver
+    Info: Found entity 2: bcd_to_7seg
+Info: Found 1 design units, including 1 entities, in source file fm_modulator.v
+    Info: Found entity 1: fm_modulator
+Info: Found 1 design units, including 1 entities, in source file button_controller.v
+    Info: Found entity 1: button_controller
+Info: Found 1 design units, including 1 entities, in source file delay_ram.v
+    Info: Found entity 1: delay_ram
+Info: Found 1 design units, including 1 entities, in source file phase_accumulator.v
+    Info: Found entity 1: phase_accumulator
+Info: Found 1 design units, including 1 entities, in source file sine_rom.v
+    Info: Found entity 1: sine_rom
+Info: Found 1 design units, including 1 entities, in source file modularsynth_dsp.bdf
+    Info: Found entity 1: ModularSynth_DSP
+Info: Found 1 design units, including 1 entities, in source file lfo_module.v
+    Info: Found entity 1: lfo_module
+Info: Found 1 design units, including 1 entities, in source file arpeggiator_module.v
+    Info: Found entity 1: arpeggiator_module
+Info: Found 1 design units, including 1 entities, in source file vco_module.v
+    Info: Found entity 1: vco_module
+Info: Found 1 design units, including 1 entities, in source file vca_module.v
+    Info: Found entity 1: vca_module
+Info: Found 1 design units, including 1 entities, in source file svf_filter_module.v
+    Info: Found entity 1: svf_filter_module
+Info: Found 1 design units, including 1 entities, in source file delay_fx_module.v
+    Info: Found entity 1: delay_fx_module
+Info: Found 1 design units, including 1 entities, in source file synth_controller.v
+    Info: Found entity 1: synth_controller
+Info: Found 1 design units, including 1 entities, in source file pitch_mixer.v
+    Info: Found entity 1: pitch_mixer
+Info: Elaborating entity "ModularSynth_DSP" for the top level hierarchy
+Info: Elaborating entity "synth_controller" for hierarchy "synth_controller:inst"
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(108): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(181): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(182): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(197): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(198): truncated value with size 32 to match size of target (16)
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "freq_hz_out", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "lfo_free_step", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "trem_free_step", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "detune_offset_out", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "delay_time_out", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "delay_time_out[0]" at synth_controller.v(130)
+Info (10041): Inferred latch for "delay_time_out[1]" at synth_controller.v(130)
+Info (10041): Inferred latch for "delay_time_out[2]" at synth_controller.v(130)
+Info (10041): Inferred latch for "delay_time_out[3]" at synth_controller.v(130)
+Info (10041): Inferred latch for "delay_time_out[4]" at synth_controller.v(130)
+Info (10041): Inferred latch for "delay_time_out[5]" at synth_controller.v(130)
+Info (10041): Inferred latch for "detune_offset_out[0]" at synth_controller.v(130)
+Info (10041): Inferred latch for "trem_free_step[0]" at synth_controller.v(130)
+Info (10041): Inferred latch for "lfo_free_step[0]" at synth_controller.v(130)
+Info (10041): Inferred latch for "freq_hz_out[0]" at synth_controller.v(130)
+Info: Elaborating entity "button_controller" for hierarchy "synth_controller:inst|button_controller:btn_up_inst"
+Info: Elaborating entity "fm_modulator" for hierarchy "fm_modulator:inst14"
+Info: Elaborating entity "delay_fx_module" for hierarchy "delay_fx_module:inst13"
+Warning (10230): Verilog HDL assignment warning at delay_fx_module.v(51): truncated value with size 32 to match size of target (9)
+Warning (10230): Verilog HDL assignment warning at delay_fx_module.v(53): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at delay_fx_module.v(71): truncated value with size 32 to match size of target (10)
+Info: Elaborating entity "delay_ram" for hierarchy "delay_fx_module:inst13|delay_ram:delay_inst"
+Info: Elaborating entity "altsyncram" for hierarchy "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "address_reg_b" = "CLOCK0"
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_input_b" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_b" = "BYPASS"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "32768"
+    Info: Parameter "numwords_b" = "32768"
+    Info: Parameter "operation_mode" = "DUAL_PORT"
+    Info: Parameter "outdata_aclr_b" = "NONE"
+    Info: Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info: Parameter "power_up_uninitialized" = "FALSE"
+    Info: Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info: Parameter "widthad_a" = "15"
+    Info: Parameter "widthad_b" = "15"
+    Info: Parameter "width_a" = "8"
+    Info: Parameter "width_b" = "8"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_sdp1.tdf
+    Info: Found entity 1: altsyncram_sdp1
+Info: Elaborating entity "altsyncram_sdp1" for hierarchy "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated"
+Info: Found 1 design units, including 1 entities, in source file db/decode_dra.tdf
+    Info: Found entity 1: decode_dra
+Info: Elaborating entity "decode_dra" for hierarchy "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|decode_dra:decode2"
+Info: Found 1 design units, including 1 entities, in source file db/decode_67a.tdf
+    Info: Found entity 1: decode_67a
+Info: Elaborating entity "decode_67a" for hierarchy "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|decode_67a:rden_decode_b"
+Info: Found 1 design units, including 1 entities, in source file db/mux_tlb.tdf
+    Info: Found entity 1: mux_tlb
+Info: Elaborating entity "mux_tlb" for hierarchy "delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated|mux_tlb:mux3"
+Info: Elaborating entity "svf_filter_module" for hierarchy "svf_filter_module:inst11"
+Info: Elaborating entity "vca_module" for hierarchy "vca_module:inst9"
+Info: Elaborating entity "arpeggiator_module" for hierarchy "arpeggiator_module:inst6"
+Info: Elaborating entity "phase_accumulator" for hierarchy "arpeggiator_module:inst6|phase_accumulator:arp_nco"
+Info: Elaborating entity "pitch_mixer" for hierarchy "pitch_mixer:inst5"
+Info: Elaborating entity "lfo_module" for hierarchy "lfo_module:LFO_VIbrato"
+Info: Elaborating entity "vco_module" for hierarchy "vco_module:inst8"
+Info: Elaborating entity "sine_rom" for hierarchy "vco_module:inst8|sine_rom:rom_main"
+Info: Elaborating entity "altsyncram" for hierarchy "vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "init_file" = "sine.mif"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "256"
+    Info: Parameter "operation_mode" = "ROM"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "outdata_reg_a" = "CLOCK0"
+    Info: Parameter "widthad_a" = "8"
+    Info: Parameter "width_a" = "8"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_e071.tdf
+    Info: Found entity 1: altsyncram_e071
+Info: Elaborating entity "altsyncram_e071" for hierarchy "vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component|altsyncram_e071:auto_generated"
+Info: Elaborating entity "display_driver" for hierarchy "display_driver:inst3"
+Warning (10230): Verilog HDL assignment warning at display_driver.v(12): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at display_driver.v(13): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at display_driver.v(14): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at display_driver.v(15): truncated value with size 32 to match size of target (4)
+Info: Elaborating entity "bcd_to_7seg" for hierarchy "display_driver:inst3|bcd_to_7seg:dec_th"
+Warning: Synthesized away the following node(s):
+    Warning: Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component|altsyncram_e071:auto_generated|q_a[0]"
+Info: Inferred 10 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Div1"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Mod1"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Mod3"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Div2"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Mod2"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Div0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_driver:inst3|Mod0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "synth_controller:inst|Mult0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "vca_module:inst9|Mult0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "delay_fx_module:inst13|Mult0"
+Info: Elaborated megafunction instantiation "display_driver:inst3|lpm_divide:Div1"
+Info: Instantiated megafunction "display_driver:inst3|lpm_divide:Div1" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "16"
+    Info: Parameter "LPM_WIDTHD" = "7"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_shm.tdf
+    Info: Found entity 1: lpm_divide_shm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_tlh.tdf
+    Info: Found entity 1: sign_div_unsign_tlh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_56f.tdf
+    Info: Found entity 1: alt_u_div_56f
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_unc.tdf
+    Info: Found entity 1: add_sub_unc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_vnc.tdf
+    Info: Found entity 1: add_sub_vnc
+Info: Elaborated megafunction instantiation "display_driver:inst3|lpm_divide:Mod1"
+Info: Instantiated megafunction "display_driver:inst3|lpm_divide:Mod1" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "16"
+    Info: Parameter "LPM_WIDTHD" = "4"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_s9m.tdf
+    Info: Found entity 1: lpm_divide_s9m
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_qlh.tdf
+    Info: Found entity 1: sign_div_unsign_qlh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_v5f.tdf
+    Info: Found entity 1: alt_u_div_v5f
+Info: Elaborated megafunction instantiation "display_driver:inst3|lpm_divide:Div2"
+Info: Instantiated megafunction "display_driver:inst3|lpm_divide:Div2" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "16"
+    Info: Parameter "LPM_WIDTHD" = "4"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_phm.tdf
+    Info: Found entity 1: lpm_divide_phm
+Info: Elaborated megafunction instantiation "display_driver:inst3|lpm_divide:Div0"
+Info: Instantiated megafunction "display_driver:inst3|lpm_divide:Div0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "16"
+    Info: Parameter "LPM_WIDTHD" = "10"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_6jm.tdf
+    Info: Found entity 1: lpm_divide_6jm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7nh.tdf
+    Info: Found entity 1: sign_div_unsign_7nh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_p8f.tdf
+    Info: Found entity 1: alt_u_div_p8f
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Instantiated megafunction "synth_controller:inst|lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "15"
+    Info: Parameter "LPM_WIDTHB" = "11"
+    Info: Parameter "LPM_WIDTHP" = "26"
+    Info: Parameter "LPM_WIDTHR" = "26"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info: Parameter "MAXIMIZE_SPEED" = "5"
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]", which is child of megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_ffh.tdf
+    Info: Found entity 1: add_sub_ffh
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add", which is child of megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]", which is child of megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_jfh.tdf
+    Info: Found entity 1: add_sub_jfh
+Info: Elaborated megafunction instantiation "synth_controller:inst|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "synth_controller:inst|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "vca_module:inst9|lpm_mult:Mult0"
+Info: Instantiated megafunction "vca_module:inst9|lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "8"
+    Info: Parameter "LPM_WIDTHB" = "9"
+    Info: Parameter "LPM_WIDTHP" = "17"
+    Info: Parameter "LPM_WIDTHR" = "17"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "5"
+Info: Found 1 design units, including 1 entities, in source file db/mult_02t.tdf
+    Info: Found entity 1: mult_02t
+Info: Elaborated megafunction instantiation "delay_fx_module:inst13|lpm_mult:Mult0"
+Info: Instantiated megafunction "delay_fx_module:inst13|lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "8"
+    Info: Parameter "LPM_WIDTHB" = "5"
+    Info: Parameter "LPM_WIDTHP" = "13"
+    Info: Parameter "LPM_WIDTHR" = "13"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "5"
+Info: Found 1 design units, including 1 entities, in source file db/mult_o1t.tdf
+    Info: Found entity 1: mult_o1t
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info: Timing-Driven Synthesis is running
+Info: Found the following redundant logic cells in design
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_15_result_int[0]~0"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_9_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_10_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_11_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_12_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_13_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod1|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_14_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_15_result_int[0]~0"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_6_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_7_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_8_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_9_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_10_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_11_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_12_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_13_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod2|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_14_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_15_result_int[0]~0"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_12_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_13_result_int[0]~10"
+    Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_14_result_int[0]~10"
+Info: Implemented 3464 device resources after synthesis - the final resource count might be different
+    Info: Implemented 14 input pins
+    Info: Implemented 38 output pins
+    Info: Implemented 3363 logic cells
+    Info: Implemented 47 RAM segments
+    Info: Implemented 2 DSP elements
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 251 megabytes
+    Info: Processing ended: Sat Feb 28 22:19:34 2026
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:24
+
+

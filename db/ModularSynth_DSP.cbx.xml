@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="ModularSynth_DSP">
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_phm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_s9m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_ffh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_sdp1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod2" CBX_FILE_NAME="lpm_divide_s9m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[1]" CBX_FILE_NAME="add_sub_ffh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|vco_module:inst8|sine_rom:rom_detune|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_e071.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|vco_module:inst8|sine_rom:rom_main|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_e071.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_6jm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_s9m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_jfh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|vca_module:inst9|lpm_mult:Mult0" CBX_FILE_NAME="mult_02t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|delay_fx_module:inst13|lpm_mult:Mult0" CBX_FILE_NAME="mult_o1t.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_shm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|ModularSynth_DSP|display_driver:inst3|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_s9m.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,57 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 64 64 272 160)
+	(text "lfo_module" (rect 5 0 59 12)(font "Arial" ))
+	(text "inst" (rect 8 80 25 92)(font "Arial" ))
+	(port
+		(pt 72 0)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 64 24 76 38)(font "Arial" )(vertical))
+		(line (pt 72 0)(pt 72 16)(line_width 1))
+	)
+	(port
+		(pt 88 0)
+		(input)
+		(text "resetN" (rect 0 0 33 12)(font "Arial" ))
+		(text "resetN" (rect 80 24 92 57)(font "Arial" )(vertical))
+		(line (pt 88 0)(pt 88 16)(line_width 1))
+	)
+	(port
+		(pt 0 72)
+		(input)
+		(text "step_size[31..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "step_size[31..0]" (rect 21 67 98 79)(font "Arial" ))
+		(line (pt 0 72)(pt 16 72)(line_width 3))
+	)
+	(port
+		(pt 208 24)
+		(output)
+		(text "wave_out[11..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "wave_out[11..0]" (rect 108 19 187 31)(font "Arial" ))
+		(line (pt 208 24)(pt 192 24)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 80)(line_width 1))
+	)
+)

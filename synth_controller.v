@@ -1,0 +1,262 @@
+module synth_controller (
+	input wire clk,
+	input wire resetN,
+	input wire btn_up_in,
+	input wire btn_down_in,
+	
+	input wire vib_switch,
+	input wire trem_switch,
+	input wire arp_switch,
+	input wire lpf_switch,
+	input wire detune_switch,
+	input wire delay_switch,
+	input wire sync_switch,
+	input wire pluck_switch,
+	
+	output reg [31:0] step_size_out,
+	output wire [31:0] lfo_step_out,
+	output wire [31:0] trem_step_out,
+	output reg [31:0] arp_step_out,
+	
+	output reg [3:0] lpf_shift_out,
+	output reg [3:0] res_shift_out,
+	output reg [31:0] detune_offset_out,
+	output reg [14:0] delay_time_out,
+	output reg [3:0] delay_fb_out,
+	
+	output wire [15:0] display_hz_out,
+	output wire led_vib_out,
+	output wire led_trem_out,
+	output wire led_arp_out,
+	output wire led_pluck_out,
+	output wire led_lpf_out,
+	output wire led_detune_out,
+	output wire led_delay_out,
+	output wire led_sync_out,
+	output wire led_tempo_out
+);
+
+	// setting and internal variables
+	wire up_short, down_short, up_long, down_long;
+	reg[3:0] edit_mode;
+	
+	reg[15:0] freq_hz_out;
+	reg[15:0] arp_hz_out;
+	reg[15:0] lpf_val_out;
+	reg[15:0] res_hz_out;
+	reg[15:0] res_val_out;
+	reg[15:0] detune_hz_out;
+	reg[15:0] detune_val_out;
+	reg[15:0] lpf_hz_out;
+	
+	reg [31:0] lfo_free_step;
+	reg [31:0] lfo_free_hz;
+	reg [31:0] trem_free_step;
+	reg [31:0] trem_free_hz;
+	
+	reg [15:0] lfo_sync_div;
+	reg [15:0] trem_sync_div;
+	
+	reg [23:0] blink_counter;
+	wire blink_state = blink_counter[23];
+	reg [25:0] tempo_counter;
+	reg tempo_led;
+	
+	button_controller btn_up_inst (
+		.clk(clk), 
+		.resetN(resetN), 
+		.button_in(btn_up_in), 
+		.short_pulse(up_short), 
+		.long_pulse(up_long)
+		);
+	button_controller btn_down_inst (
+		.clk(clk), 
+		.resetN(resetN), 
+		.button_in(btn_down_in), 
+		.short_pulse(down_short), 
+		.long_pulse(down_long)
+		);
+
+	// sync tempo logic
+	assign lfo_step_out = (!sync_switch) ? lfo_free_step :
+						  (lfo_sync_div == 16'd4) ? (arp_step_out >> 1) : // quarter note
+						  (lfo_sync_div == 16'd8) ? (arp_step_out) : 	// eight note
+						  (lfo_sync_div == 16'd16) ? (arp_step_out << 1) : // 1/16 note
+						  (arp_step_out << 2); 							// 1/32 note
+
+	assign trem_step_out = (!sync_switch) ? trem_free_step :
+						  (trem_sync_div == 16'd4) ? (arp_step_out >> 1) : // quarter note
+						  (trem_sync_div == 16'd8) ? (arp_step_out) : 	// eight note
+						  (trem_sync_div == 16'd16) ? (arp_step_out << 1) : // 1/16 note
+						  (arp_step_out << 2); 							// 1/32 note
+
+	// display screen logic
+	always @(*) begin
+		case(lpf_val_out)
+			16'd1 : lpf_hz_out = 16'd150;
+			16'd2 : lpf_hz_out = 16'd300;
+			16'd3 : lpf_hz_out = 16'd600;
+			16'd4 : lpf_hz_out = 16'd1200;
+			16'd5 : lpf_hz_out = 16'd2400;
+			16'd6 : lpf_hz_out = 16'd4800;
+			16'd7 : lpf_hz_out = 16'd9600;
+			16'd8 : lpf_hz_out = 16'd15000;
+			default: lpf_hz_out = 16'd15000;
+		endcase
+	end
+
+	assign display_hz_out = (edit_mode == 4'd0) ? freq_hz_out :
+							(edit_mode == 4'd1) ? (sync_switch ? lfo_sync_div : lfo_free_hz) :
+							(edit_mode == 4'd2) ? (sync_switch ? trem_sync_div : trem_free_hz) :
+							(edit_mode == 4'd3) ? arp_hz_out :
+							(edit_mode == 4'd4) ? lpf_hz_out :
+							(edit_mode == 4'd5) ? res_val_out :
+							(edit_mode == 4'd6) ? detune_val_out :
+							(edit_mode == 4'd7) ? {1'b0, delay_time_out[14:5]} : // in ms
+							{12'd0, delay_fb_out}; // 0-8
+
+	// leds
+	assign led_vib_out = (edit_mode == 4'd1) ? blink_state : vib_switch;
+	assign led_trem_out = (edit_mode == 4'd2) ? blink_state : trem_switch;
+	assign led_arp_out = (edit_mode == 4'd3) ? blink_state : arp_switch;
+	assign led_lpf_out = ((edit_mode == 4'd4) || (edit_mode == 4'd5)) ? blink_state : lpf_switch;
+	assign led_detune_out = (edit_mode == 4'd6) ? blink_state : detune_switch;
+	assign led_delay_out = ((edit_mode == 4'd7) || (edit_mode == 4'd8)) ? blink_state : delay_switch;
+	assign led_pluck_out = pluck_switch;
+	assign led_sync_out = sync_switch;
+	assign led_tempo_out = tempo_led;
+	
+	// state machine:
+	always @(posedge clk or negedge resetN) begin
+		if(!resetN) begin
+			step_size_out <= 32'd37795; 	freq_hz_out <= 16'd440;
+			arp_step_out <= 32'd84; 		arp_hz_out <= 16'd2;
+			lfo_free_step <= 32'd429; 		lfo_free_hz <= 16'd5;
+			trem_free_step <= 32'd428; 		trem_free_hz <= 16'd5;
+			lfo_sync_div <= 16'd8;
+			trem_sync_div <= 16'd8;
+			lpf_val_out <= 16'd8; 			lpf_shift_out <= 4'd8;
+			res_val_out <= 16'd1; 			res_shift_out <= 4'd1;
+			detune_val_out <= 16'd5; 		detune_offset_out <= 32'd430;
+			delay_time_out <= 15'd16000;	delay_fb_out <= 4'd4;
+			edit_mode <= 4'd0;
+			blink_counter <= 24'd0;
+			tempo_counter <= 26'd0;
+			tempo_led <= 1'b0;
+		end else begin
+			// led timers
+			blink_counter <= blink_counter + 24'd1;
+			if(tempo_counter >= (delay_time_out * 15'd1600)) begin
+				tempo_counter <= 26'd0;
+				tempo_led <= ~tempo_led;
+			end else begin
+				tempo_counter <= tempo_counter + 26'd1;
+			end
+			
+			// navigate between edit pages
+			if(btn_up_in == 1'b0 && btn_down_in == 1'b0) begin
+				edit_mode <= 4'd0;
+			end	else if(down_long) begin
+				if(edit_mode == 4'd8) edit_mode <= 4'd0;
+				else edit_mode <= edit_mode + 4'd1;
+			end else if(up_long) begin
+				if(edit_mode == 4'd0) edit_mode <= 4'd8;
+				else edit_mode <= edit_mode - 4'd1;
+			end
+			
+			// edit parameters depend current screen
+			if(edit_mode == 4'd0) begin
+				// main pitch
+				if(up_short && step_size_out < 32'd429496) begin 
+					step_size_out <= step_size_out + 32'd4295;
+					freq_hz_out <= freq_hz_out + 15'd50;
+				end else if(down_short && step_size_out >= 32'd4295) begin
+					step_size_out <= step_size_out - 32'd4295;
+					freq_hz_out <= freq_hz_out - 15'd50;
+				end
+			end
+			else if(edit_mode == 4'd1) begin
+			// vibrato
+				if(sync_switch) begin
+					if(up_short && lfo_sync_div < 16'd32) lfo_sync_div <= lfo_sync_div *2;
+					else if(down_short && lfo_sync_div > 16'd4) lfo_sync_div <= lfo_sync_div /2;
+				end else begin
+					if(up_short && lfo_free_hz < 16'd20) begin
+						lfo_free_step <= lfo_free_step + 32'd86;
+						lfo_free_hz <= lfo_free_hz + 16'd1;
+					end else if(down_short && lfo_free_hz >16'd1) begin
+						lfo_free_step <= lfo_free_step - 32'd86;
+						lfo_free_hz <= lfo_free_hz - 16'd1;
+					end
+				end
+			
+			end
+			else if(edit_mode == 4'd2) begin
+			//tremolo
+				if(sync_switch) begin
+					if(up_short && trem_sync_div < 16'd32) trem_sync_div <= trem_sync_div *2;
+					else if(down_short && trem_sync_div > 16'd4) trem_sync_div <= trem_sync_div / 2;
+				end else begin
+					if(up_short && trem_free_hz < 16'd25) begin
+						trem_free_step <= trem_free_step + 32'd86;
+						trem_free_hz <= trem_free_hz +16'd1;
+					end else if(down_short && trem_free_hz > 16'd1) begin
+						trem_free_step <= trem_free_step - 32'd86;
+						trem_free_hz <= trem_free_hz - 16'd1;
+					end
+				end
+			end
+			else if(edit_mode == 4'd3) begin
+			// arrpeggiator
+				if(up_short && arp_hz_out < 16'd40) begin
+					arp_step_out <= arp_step_out + 32'd21;
+					arp_hz_out <= arp_hz_out + 16'd1;
+				end else if(down_short && arp_hz_out > 16'd1) begin
+					arp_step_out <= arp_step_out - 32'd21;
+					arp_hz_out <= arp_hz_out - 16'd1;
+				end
+			end
+			else if(edit_mode == 4'd4) begin
+			// LPF
+				if(up_short && lpf_val_out < 16'd8) begin
+					lpf_val_out <= lpf_val_out + 16'd1;
+					lpf_shift_out <= lpf_shift_out - 4'd1;
+				end else if(down_short && lpf_val_out > 16'd1) begin
+					lpf_val_out <= lpf_val_out - 16'd1;
+					lpf_shift_out <= lpf_shift_out + 4'd1;
+				end
+			end
+			else if(edit_mode == 4'd5) begin
+			// resonance
+				if(up_short && res_val_out < 16'd5) begin
+					res_val_out <= res_val_out + 16'd1;
+					res_shift_out <= res_shift_out + 4'd1;
+				end else if(down_short && res_val_out > 16'd1) begin
+					res_val_out <= res_val_out - 16'd1;
+					res_shift_out <= res_shift_out - 4'd1;
+				end
+			end
+			else if(edit_mode == 4'd6) begin
+			//detune
+				if(up_short && detune_val_out < 16'd15) begin
+					detune_val_out <= detune_val_out + 16'd1;
+					detune_offset_out <= detune_offset_out + 32'd86;
+				end else if(down_short && detune_val_out > 16'd1) begin
+					detune_val_out <= detune_val_out - 16'd1;
+					detune_offset_out <= detune_offset_out - 32'd86;
+				end
+			end
+			else if(edit_mode == 4'd7) begin
+			//delay time
+				if(up_short && delay_time_out < 15'd32000) delay_time_out <= delay_time_out + 15'd1600; 
+				else if (down_short && delay_time_out > 15'd1600) delay_time_out <= delay_time_out - 15'd1600;
+			end
+			else if(edit_mode == 4'd8) begin
+			// delay feedback
+				if(up_short && delay_fb_out < 4'd8) delay_fb_out <= delay_fb_out + 4'd1; 
+				else if (down_short && delay_fb_out > 4'd0) delay_fb_out <= delay_fb_out - 4'd1;
+			end
+	end
+end
+
+endmodule

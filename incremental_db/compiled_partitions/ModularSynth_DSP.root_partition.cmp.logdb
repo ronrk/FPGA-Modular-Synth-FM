@@ -1,0 +1,4 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,delay_fx_module:inst13|lpm_mult:Mult0|mult_o1t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,vca_module:inst9|lpm_mult:Mult0|mult_02t:auto_generated|mac_out2,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,vca_module:inst9|lpm_mult:Mult0|mult_02t:auto_generated|mac_mult1,

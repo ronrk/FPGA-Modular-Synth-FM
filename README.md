@@ -12,20 +12,16 @@ The system was designed using a **"Divide and Conquer" modular architecture**, h
 
 ```mermaid
 graph TD
-    classDef control fill:#2b2b2b,stroke:#00ffcc,stroke-width:2px,color:#fff;
-    classDef process fill:#1e1e1e,stroke:#ff0055,stroke-width:2px,color:#fff;
-    classDef sound fill:#1e1e1e,stroke:#ffaa00,stroke-width:2px,color:#fff;
-
-    Ctrl(Synth Controller) :::control
-    Vib(LFO 1: Vibrato) :::control
-    Trem(LFO 2: Tremolo) :::control
-    Arp[Arpeggiator / Master Clock] :::process
-    
-    Osc[[VCO: Main Oscillator]] :::sound
-    Vca[[VCA: Env & Amp]] :::sound
-    Filt[[VCF: SVF Filter]] :::sound
-    Del[[BRAM Tape Delay]] :::sound
-    Fm((FM Transmitter)) :::process
+    Ctrl[Synth Controller]
+    Vib[LFO 1: Vibrato]
+    Trem[LFO 2: Tremolo]
+    Arp[Arpeggiator / Master Clock]
+    Osc[VCO: Main Oscillator]
+    Vca[VCA: Env & Amp]
+    Filt[VCF: SVF Filter]
+    Del[BRAM Tape Delay]
+    Fm((FM Transmitter))
+    Ant((Antenna))
 
     Ctrl -->|Base Pitch| Vib
     Vib -.->|Pitch Mod| Arp
@@ -37,7 +33,7 @@ graph TD
     Vca -->|Audio| Filt
     Filt -->|Audio| Del
     Del -->|Audio| Fm
-    Fm -->|RF Signal| Antenna((Antenna))
+    Fm -->|RF Signal| Ant
 ```
 
 ### 🎛️ Key Modules:

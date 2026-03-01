@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II"
 -- VERSION "Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition"
 
--- DATE "02/28/2026 22:20:21"
+-- DATE "03/01/2026 12:24:28"
 
 -- 
 -- Device: Altera EP3C16F484C6 Package FBGA484
@@ -5011,20 +5011,15 @@ SIGNAL \inst3|dec_th|WideOr3~0_combout\ : std_logic;
 SIGNAL \inst3|dec_th|WideOr4~0_combout\ : std_logic;
 SIGNAL \inst3|dec_th|WideOr5~0_combout\ : std_logic;
 SIGNAL \inst3|dec_th|WideOr6~0_combout\ : std_logic;
-SIGNAL \inst9|pluck_env\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \inst11|lpf_reg\ : std_logic_vector(29 DOWNTO 0);
-SIGNAL \inst13|delay_inst|altsyncram_component|auto_generated|rden_decode_b|w_anode336w\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \inst13|delay_inst|altsyncram_component|auto_generated|address_reg_b\ : std_logic_vector(1 DOWNTO 0);
-SIGNAL \inst13|sample_counter\ : std_logic_vector(10 DOWNTO 0);
-SIGNAL \inst14|phase_acc\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \inst|arp_step_out\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \inst|detune_offset_out\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \inst|freq_hz_out\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \inst|lfo_sync_div\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \inst|res_val_out\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \inst|trem_free_step\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \inst8|rom_detune|altsyncram_component|auto_generated|q_a\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \inst8|detune_nco|phase_out\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \inst9|decay_timer\ : std_logic_vector(14 DOWNTO 0);
+SIGNAL \inst11|bp_reg\ : std_logic_vector(29 DOWNTO 0);
+SIGNAL \inst13|delay_inst|altsyncram_component|auto_generated|rden_decode_b|w_anode359w\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \inst|delay_fb_out\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \inst|lfo_free_step\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \inst|lpf_shift_out\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \inst|tempo_counter\ : std_logic_vector(25 DOWNTO 0);
+SIGNAL \inst|trem_sync_div\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \inst|btn_down_inst|press_count\ : std_logic_vector(26 DOWNTO 0);
 SIGNAL \inst8|rom_main|altsyncram_component|auto_generated|q_a\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \inst6|arp_nco|phase_out\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \inst9|last_arp_note\ : std_logic_vector(1 DOWNTO 0);
@@ -5045,15 +5040,20 @@ SIGNAL \inst|trem_free_hz\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \LFO_Tremolo|lfo_nco|phase_out\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \inst8|main_nco|phase_out\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \LFO_VIbrato|lfo_nco|phase_out\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \inst9|decay_timer\ : std_logic_vector(14 DOWNTO 0);
-SIGNAL \inst11|bp_reg\ : std_logic_vector(29 DOWNTO 0);
-SIGNAL \inst13|delay_inst|altsyncram_component|auto_generated|rden_decode_b|w_anode359w\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \inst|delay_fb_out\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \inst|lfo_free_step\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \inst|lpf_shift_out\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \inst|tempo_counter\ : std_logic_vector(25 DOWNTO 0);
-SIGNAL \inst|trem_sync_div\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \inst|btn_down_inst|press_count\ : std_logic_vector(26 DOWNTO 0);
+SIGNAL \inst9|pluck_env\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \inst11|lpf_reg\ : std_logic_vector(29 DOWNTO 0);
+SIGNAL \inst13|delay_inst|altsyncram_component|auto_generated|rden_decode_b|w_anode336w\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \inst13|delay_inst|altsyncram_component|auto_generated|address_reg_b\ : std_logic_vector(1 DOWNTO 0);
+SIGNAL \inst13|sample_counter\ : std_logic_vector(10 DOWNTO 0);
+SIGNAL \inst14|phase_acc\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \inst|arp_step_out\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \inst|detune_offset_out\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \inst|freq_hz_out\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \inst|lfo_sync_div\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \inst|res_val_out\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \inst|trem_free_step\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \inst8|rom_detune|altsyncram_component|auto_generated|q_a\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \inst8|detune_nco|phase_out\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \inst|ALT_INV_delay_fb_out\ : std_logic_vector(2 DOWNTO 2);
 SIGNAL \inst|ALT_INV_LessThan0~26_combout\ : std_logic;
 SIGNAL \inst3|dec_hu|ALT_INV_WideOr0~0_combout\ : std_logic;

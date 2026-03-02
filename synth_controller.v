@@ -99,8 +99,6 @@ module synth_controller (
 			16'd4 : lpf_hz_out = 16'd1200;
 			16'd5 : lpf_hz_out = 16'd2400;
 			16'd6 : lpf_hz_out = 16'd4800;
-			16'd7 : lpf_hz_out = 16'd9600;
-			16'd8 : lpf_hz_out = 16'd15000;
 			default: lpf_hz_out = 16'd15000;
 		endcase
 	end
@@ -135,7 +133,7 @@ module synth_controller (
 			trem_free_step <= 32'd428; 		trem_free_hz <= 16'd5;
 			lfo_sync_div <= 16'd8;
 			trem_sync_div <= 16'd8;
-			lpf_val_out <= 16'd8; 			lpf_shift_out <= 4'd8;
+			lpf_val_out <= 16'd5; 			lpf_shift_out <= 4'd1;
 			res_val_out <= 16'd1; 			res_shift_out <= 4'd1;
 			detune_val_out <= 16'd5; 		detune_offset_out <= 32'd430;
 			delay_time_out <= 15'd16000;	delay_fb_out <= 4'd4;
@@ -218,7 +216,7 @@ module synth_controller (
 			end
 			else if(edit_mode == 4'd4) begin
 			// LPF
-				if(up_short && lpf_val_out < 16'd8) begin
+				if(up_short && lpf_val_out < 16'd6) begin
 					lpf_val_out <= lpf_val_out + 16'd1;
 					lpf_shift_out <= lpf_shift_out - 4'd1;
 				end else if(down_short && lpf_val_out > 16'd1) begin

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ModularSynth_DSP
-Sun Mar 01 12:23:59 2026
+Mon Mar 02 13:44:15 2026
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -68,13 +68,13 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +------------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar 01 12:23:58 2026        ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 02 13:44:15 2026        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; ModularSynth_DSP                             ;
 ; Top-level Entity Name              ; ModularSynth_DSP                             ;
 ; Family                             ; Cyclone III                                  ;
-; Total logic elements               ; 3,361                                        ;
-;     Total combinational functions  ; 3,355                                        ;
+; Total logic elements               ; 3,363                                        ;
+;     Total combinational functions  ; 3,357                                        ;
 ;     Dedicated logic registers      ; 757                                          ;
 ; Total registers                    ; 757                                          ;
 ; Total pins                         ; 52                                           ;
@@ -237,17 +237,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,361     ;
+; Estimated Total logic elements              ; 3,363     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3355      ;
+; Total combinational functions               ; 3357      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1000      ;
-;     -- 3 input functions                    ; 1514      ;
-;     -- <=2 input functions                  ; 841       ;
+;     -- 4 input functions                    ; 1009      ;
+;     -- 3 input functions                    ; 1498      ;
+;     -- <=2 input functions                  ; 850       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2044      ;
-;     -- arithmetic mode                      ; 1311      ;
+;     -- normal mode                          ; 2038      ;
+;     -- arithmetic mode                      ; 1319      ;
 ;                                             ;           ;
 ; Total registers                             ; 757       ;
 ;     -- Dedicated logic registers            ; 757       ;
@@ -258,8 +258,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 2         ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 804       ;
-; Total fan-out                               ; 14053     ;
-; Average fan-out                             ; 3.29      ;
+; Total fan-out                               ; 14119     ;
+; Average fan-out                             ; 3.31      ;
 +---------------------------------------------+-----------+
 
 
@@ -268,10 +268,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                            ; Library Name ;
 +---------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |ModularSynth_DSP                                 ; 3355 (1)          ; 757 (0)      ; 265984      ; 2            ; 2       ; 0         ; 52   ; 0            ; |ModularSynth_DSP                                                                                                                                              ; work         ;
+; |ModularSynth_DSP                                 ; 3357 (1)          ; 757 (0)      ; 265984      ; 2            ; 2       ; 0         ; 52   ; 0            ; |ModularSynth_DSP                                                                                                                                              ; work         ;
 ;    |arpeggiator_module:inst6|                     ; 163 (131)         ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|arpeggiator_module:inst6                                                                                                                     ;              ;
 ;       |phase_accumulator:arp_nco|                 ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|arpeggiator_module:inst6|phase_accumulator:arp_nco                                                                                           ;              ;
-;    |delay_fx_module:inst13|                       ; 183 (158)         ; 43 (41)      ; 262144      ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13                                                                                                                       ;              ;
+;    |delay_fx_module:inst13|                       ; 168 (143)         ; 32 (30)      ; 262144      ; 1            ; 1       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13                                                                                                                       ;              ;
 ;       |delay_ram:delay_inst|                      ; 25 (0)            ; 2 (0)        ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst                                                                                                  ;              ;
 ;          |altsyncram:altsyncram_component|        ; 25 (0)            ; 2 (0)        ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component                                                                  ;              ;
 ;             |altsyncram_sdp1:auto_generated|      ; 25 (0)            ; 2 (2)        ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|delay_fx_module:inst13|delay_ram:delay_inst|altsyncram:altsyncram_component|altsyncram_sdp1:auto_generated                                   ;              ;
@@ -319,8 +319,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |lfo_module:LFO_VIbrato|                       ; 44 (12)           ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|lfo_module:LFO_VIbrato                                                                                                                       ;              ;
 ;       |phase_accumulator:lfo_nco|                 ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|lfo_module:LFO_VIbrato|phase_accumulator:lfo_nco                                                                                             ;              ;
 ;    |pitch_mixer:inst5|                            ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|pitch_mixer:inst5                                                                                                                            ;              ;
-;    |svf_filter_module:inst11|                     ; 567 (567)         ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|svf_filter_module:inst11                                                                                                                     ;              ;
-;    |synth_controller:inst|                        ; 1001 (866)        ; 437 (373)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst                                                                                                                        ;              ;
+;    |svf_filter_module:inst11|                     ; 591 (591)         ; 71 (71)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|svf_filter_module:inst11                                                                                                                     ;              ;
+;    |synth_controller:inst|                        ; 994 (859)         ; 437 (373)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst                                                                                                                        ;              ;
 ;       |button_controller:btn_down_inst|           ; 51 (51)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|button_controller:btn_down_inst                                                                                        ;              ;
 ;       |button_controller:btn_up_inst|             ; 51 (51)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|button_controller:btn_up_inst                                                                                          ;              ;
 ;       |lpm_mult:Mult0|                            ; 33 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ModularSynth_DSP|synth_controller:inst|lpm_mult:Mult0                                                                                                         ;              ;
@@ -381,11 +381,22 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------------------------+------------------------------------------------------------------------+
 ; Register name                                            ; Reason for Removal                                                     ;
 +----------------------------------------------------------+------------------------------------------------------------------------+
-; vco_module:inst8|phase_accumulator:main_nco|phase_out[0] ; Merged with vco_module:inst8|phase_accumulator:detune_nco|phase_out[0] ;
+; delay_fx_module:inst13|sample_counter[10]                ; Merged with svf_filter_module:inst11|sample_counter[10]                ;
+; delay_fx_module:inst13|sample_counter[9]                 ; Merged with svf_filter_module:inst11|sample_counter[9]                 ;
+; delay_fx_module:inst13|sample_counter[8]                 ; Merged with svf_filter_module:inst11|sample_counter[8]                 ;
+; delay_fx_module:inst13|sample_counter[7]                 ; Merged with svf_filter_module:inst11|sample_counter[7]                 ;
+; delay_fx_module:inst13|sample_counter[6]                 ; Merged with svf_filter_module:inst11|sample_counter[6]                 ;
+; delay_fx_module:inst13|sample_counter[5]                 ; Merged with svf_filter_module:inst11|sample_counter[5]                 ;
+; delay_fx_module:inst13|sample_counter[4]                 ; Merged with svf_filter_module:inst11|sample_counter[4]                 ;
+; delay_fx_module:inst13|sample_counter[3]                 ; Merged with svf_filter_module:inst11|sample_counter[3]                 ;
+; delay_fx_module:inst13|sample_counter[2]                 ; Merged with svf_filter_module:inst11|sample_counter[2]                 ;
+; delay_fx_module:inst13|sample_counter[1]                 ; Merged with svf_filter_module:inst11|sample_counter[1]                 ;
+; delay_fx_module:inst13|sample_counter[0]                 ; Merged with svf_filter_module:inst11|sample_counter[0]                 ;
 ; synth_controller:inst|blink_counter[0]                   ; Merged with vca_module:inst9|decay_timer[0]                            ;
 ; synth_controller:inst|arp_hz_out[0]                      ; Merged with synth_controller:inst|arp_step_out[0]                      ;
 ; synth_controller:inst|res_shift_out[0]                   ; Merged with synth_controller:inst|res_val_out[0]                       ;
 ; synth_controller:inst|detune_offset_out[1]               ; Merged with synth_controller:inst|detune_val_out[0]                    ;
+; vco_module:inst8|phase_accumulator:main_nco|phase_out[0] ; Merged with vco_module:inst8|phase_accumulator:detune_nco|phase_out[0] ;
 ; synth_controller:inst|res_shift_out[1]                   ; Merged with synth_controller:inst|res_val_out[1]                       ;
 ; synth_controller:inst|blink_counter[1]                   ; Merged with vca_module:inst9|decay_timer[1]                            ;
 ; synth_controller:inst|blink_counter[2]                   ; Merged with vca_module:inst9|decay_timer[2]                            ;
@@ -416,7 +427,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; synth_controller:inst|lfo_sync_div[10]                   ; Stuck at GND due to stuck port data_in                                 ;
 ; synth_controller:inst|trem_sync_div[9]                   ; Stuck at GND due to stuck port data_in                                 ;
 ; synth_controller:inst|lfo_sync_div[9]                    ; Stuck at GND due to stuck port data_in                                 ;
-; Total Number of Removed Registers = 36                   ;                                                                        ;
+; Total Number of Removed Registers = 47                   ;                                                                        ;
 +----------------------------------------------------------+------------------------------------------------------------------------+
 
 
@@ -430,7 +441,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; Number of registers using Synchronous Load   ; 50    ;
 ; Number of registers using Asynchronous Clear ; 563   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 363   ;
+; Number of registers using Clock Enable       ; 425   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -440,6 +451,8 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +--------------------------------------------------------------+---------+
 ; Inverted Register                                            ; Fan out ;
 +--------------------------------------------------------------+---------+
+; synth_controller:inst|lpf_val_out[0]                         ; 14      ;
+; synth_controller:inst|lpf_val_out[2]                         ; 16      ;
 ; synth_controller:inst|delay_time_out[13]                     ; 11      ;
 ; synth_controller:inst|freq_hz_out[8]                         ; 2       ;
 ; synth_controller:inst|delay_time_out[12]                     ; 12      ;
@@ -459,12 +472,12 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; synth_controller:inst|detune_val_out[0]                      ; 6       ;
 ; synth_controller:inst|lfo_free_hz[0]                         ; 2       ;
 ; synth_controller:inst|arp_hz_out[1]                          ; 3       ;
-; synth_controller:inst|step_size_out[12]                      ; 5       ;
 ; synth_controller:inst|step_size_out[15]                      ; 5       ;
 ; synth_controller:inst|step_size_out[9]                       ; 5       ;
 ; synth_controller:inst|step_size_out[5]                       ; 5       ;
 ; synth_controller:inst|step_size_out[7]                       ; 5       ;
 ; synth_controller:inst|step_size_out[8]                       ; 5       ;
+; synth_controller:inst|step_size_out[12]                      ; 5       ;
 ; synth_controller:inst|step_size_out[0]                       ; 6       ;
 ; synth_controller:inst|step_size_out[1]                       ; 4       ;
 ; delay_fx_module:inst13|current_delay_time[13]                ; 4       ;
@@ -473,7 +486,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; delay_fx_module:inst13|current_delay_time[10]                ; 4       ;
 ; delay_fx_module:inst13|current_delay_time[9]                 ; 4       ;
 ; delay_fx_module:inst13|current_delay_time[7]                 ; 4       ;
-; synth_controller:inst|lpf_shift_out[3]                       ; 84      ;
+; synth_controller:inst|lpf_shift_out[0]                       ; 92      ;
 ; synth_controller:inst|detune_offset_out[8]                   ; 2       ;
 ; synth_controller:inst|detune_offset_out[7]                   ; 2       ;
 ; synth_controller:inst|detune_offset_out[5]                   ; 2       ;
@@ -492,7 +505,6 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; synth_controller:inst|lfo_free_step[5]                       ; 2       ;
 ; synth_controller:inst|lfo_free_step[3]                       ; 2       ;
 ; synth_controller:inst|lfo_free_step[2]                       ; 2       ;
-; synth_controller:inst|lpf_val_out[3]                         ; 4       ;
 ; synth_controller:inst|trem_sync_div[3]                       ; 9       ;
 ; synth_controller:inst|lfo_sync_div[3]                        ; 9       ;
 ; synth_controller:inst|res_val_out[0]                         ; 34      ;
@@ -502,7 +514,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 ; synth_controller:inst|button_controller:btn_down_inst|sync_2 ; 1       ;
 ; synth_controller:inst|button_controller:btn_down_inst|sync_0 ; 1       ;
 ; synth_controller:inst|button_controller:btn_up_inst|sync_0   ; 1       ;
-; Total number of inverted registers = 62                      ;         ;
+; Total number of inverted registers = 63                      ;         ;
 +--------------------------------------------------------------+---------+
 
 
@@ -511,43 +523,44 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
-; 3:1                ; 34 bits   ; 68 LEs        ; 0 LEs                ; 68 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|step_size_out[27]       ;
+; 3:1                ; 34 bits   ; 68 LEs        ; 0 LEs                ; 68 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|freq_hz_out[15]         ;
 ; 3:1                ; 56 bits   ; 112 LEs       ; 0 LEs                ; 112 LEs                ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_free_hz[11]        ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_sync_div[8]        ;
-; 3:1                ; 39 bits   ; 78 LEs        ; 0 LEs                ; 78 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|detune_offset_out[4]    ;
-; 3:1                ; 56 bits   ; 112 LEs       ; 0 LEs                ; 112 LEs                ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_free_step[17]       ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_sync_div[13]       ;
+; 3:1                ; 39 bits   ; 78 LEs        ; 0 LEs                ; 78 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|detune_offset_out[21]   ;
+; 3:1                ; 56 bits   ; 112 LEs       ; 0 LEs                ; 112 LEs                ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_free_step[18]       ;
 ; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_sync_div[14]        ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|res_val_out[7]          ;
-; 3:1                ; 43 bits   ; 86 LEs        ; 0 LEs                ; 86 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|arp_hz_out[14]          ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lpf_val_out[5]          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|vca_module:inst9|pluck_env[3]                 ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |ModularSynth_DSP|delay_fx_module:inst13|current_delay_time[14] ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|edit_mode[3]            ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|step_size_out[8]        ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|res_val_out[12]         ;
+; 3:1                ; 43 bits   ; 86 LEs        ; 0 LEs                ; 86 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|arp_step_out[15]        ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lpf_val_out[6]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|vca_module:inst9|pluck_env[5]                 ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |ModularSynth_DSP|delay_fx_module:inst13|current_delay_time[3]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|edit_mode[1]            ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|freq_hz_out[7]          ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|trem_free_step[2]       ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|detune_offset_out[7]    ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_free_step[3]        ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|arp_step_out[4]         ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|delay_time_out[7]       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|detune_val_out[0]       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 0 LEs                ; 14 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lfo_free_step[7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|arp_hz_out[1]           ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|lpf_val_out[2]          ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |ModularSynth_DSP|synth_controller:inst|delay_time_out[12]      ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |ModularSynth_DSP|synth_controller:inst|delay_fb_out[1]         ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; Yes        ; |ModularSynth_DSP|delay_fx_module:inst13|current_delay_time[10] ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight0          ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|vco_module:inst8|Mux0                         ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight1          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|audio_out[4]         ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|delay_fx_module:inst13|audio_out[3]           ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|delay_fx_module:inst13|ram_data_in[0]         ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|vco_module:inst8|Mux5                         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|delay_fx_module:inst13|audio_out[0]           ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|delay_fx_module:inst13|ram_data_in[5]         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|vca_module:inst9|current_volume[0]            ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight2          ;
-; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; No         ; |ModularSynth_DSP|arpeggiator_module:inst6|arp_out_step[12]     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|vca_module:inst9|current_volume[0]            ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 62 LEs               ; 31 LEs                 ; No         ; |ModularSynth_DSP|arpeggiator_module:inst6|arp_out_step[16]     ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight0          ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|ShiftRight1          ;
-; 5:1                ; 29 bits   ; 87 LEs        ; 87 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|trem_step_out[25]       ;
-; 5:1                ; 29 bits   ; 87 LEs        ; 87 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|lfo_step_out[5]         ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[14]      ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[10]      ;
-; 11:1               ; 6 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[5]       ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 87 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|trem_step_out[28]       ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 87 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|lfo_step_out[4]         ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|svf_filter_module:inst11|audio_out[1]         ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[15]      ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[13]      ;
+; 11:1               ; 6 bits    ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[9]       ;
 ; 11:1               ; 3 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; No         ; |ModularSynth_DSP|synth_controller:inst|display_hz_out[3]       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
 
@@ -1157,7 +1170,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sun Mar 01 12:23:46 2026
+    Info: Processing started: Mon Mar 02 13:44:03 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ModularSynth_DSP -c ModularSynth_DSP
 Info: Found 2 design units, including 2 entities, in source file display_driver.v
     Info: Found entity 1: display_driver
@@ -1192,26 +1205,26 @@ Info: Found 1 design units, including 1 entities, in source file pitch_mixer.v
     Info: Found entity 1: pitch_mixer
 Info: Elaborating entity "ModularSynth_DSP" for the top level hierarchy
 Info: Elaborating entity "synth_controller" for hierarchy "synth_controller:inst"
-Warning (10230): Verilog HDL assignment warning at synth_controller.v(108): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at synth_controller.v(181): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at synth_controller.v(182): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at synth_controller.v(197): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at synth_controller.v(198): truncated value with size 32 to match size of target (16)
-Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "freq_hz_out", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "lfo_free_step", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "trem_free_step", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "detune_offset_out", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(130): inferring latch(es) for variable "delay_time_out", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "delay_time_out[0]" at synth_controller.v(130)
-Info (10041): Inferred latch for "delay_time_out[1]" at synth_controller.v(130)
-Info (10041): Inferred latch for "delay_time_out[2]" at synth_controller.v(130)
-Info (10041): Inferred latch for "delay_time_out[3]" at synth_controller.v(130)
-Info (10041): Inferred latch for "delay_time_out[4]" at synth_controller.v(130)
-Info (10041): Inferred latch for "delay_time_out[5]" at synth_controller.v(130)
-Info (10041): Inferred latch for "detune_offset_out[0]" at synth_controller.v(130)
-Info (10041): Inferred latch for "trem_free_step[0]" at synth_controller.v(130)
-Info (10041): Inferred latch for "lfo_free_step[0]" at synth_controller.v(130)
-Info (10041): Inferred latch for "freq_hz_out[0]" at synth_controller.v(130)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(106): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(179): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(180): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(195): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at synth_controller.v(196): truncated value with size 32 to match size of target (16)
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(128): inferring latch(es) for variable "freq_hz_out", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(128): inferring latch(es) for variable "lfo_free_step", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(128): inferring latch(es) for variable "trem_free_step", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(128): inferring latch(es) for variable "detune_offset_out", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at synth_controller.v(128): inferring latch(es) for variable "delay_time_out", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "delay_time_out[0]" at synth_controller.v(128)
+Info (10041): Inferred latch for "delay_time_out[1]" at synth_controller.v(128)
+Info (10041): Inferred latch for "delay_time_out[2]" at synth_controller.v(128)
+Info (10041): Inferred latch for "delay_time_out[3]" at synth_controller.v(128)
+Info (10041): Inferred latch for "delay_time_out[4]" at synth_controller.v(128)
+Info (10041): Inferred latch for "delay_time_out[5]" at synth_controller.v(128)
+Info (10041): Inferred latch for "detune_offset_out[0]" at synth_controller.v(128)
+Info (10041): Inferred latch for "trem_free_step[0]" at synth_controller.v(128)
+Info (10041): Inferred latch for "lfo_free_step[0]" at synth_controller.v(128)
+Info (10041): Inferred latch for "freq_hz_out[0]" at synth_controller.v(128)
 Info: Elaborating entity "button_controller" for hierarchy "synth_controller:inst|button_controller:btn_up_inst"
 Info: Elaborating entity "fm_modulator" for hierarchy "fm_modulator:inst14"
 Info: Elaborating entity "delay_fx_module" for hierarchy "delay_fx_module:inst13"
@@ -1420,16 +1433,16 @@ Info: Found the following redundant logic cells in design
     Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_12_result_int[0]~10"
     Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_13_result_int[0]~10"
     Info (17048): Logic cell "display_driver:inst3|lpm_divide:Mod0|lpm_divide_s9m:auto_generated|sign_div_unsign_qlh:divider|alt_u_div_v5f:divider|add_sub_14_result_int[0]~10"
-Info: Implemented 3464 device resources after synthesis - the final resource count might be different
+Info: Implemented 3466 device resources after synthesis - the final resource count might be different
     Info: Implemented 14 input pins
     Info: Implemented 38 output pins
-    Info: Implemented 3363 logic cells
+    Info: Implemented 3365 logic cells
     Info: Implemented 47 RAM segments
     Info: Implemented 2 DSP elements
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 20 warnings
     Info: Peak virtual memory: 251 megabytes
-    Info: Processing ended: Sun Mar 01 12:23:59 2026
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Processing ended: Mon Mar 02 13:44:15 2026
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:22
 
 

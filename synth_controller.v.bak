@@ -135,7 +135,7 @@ module synth_controller (
 			trem_free_step <= 32'd428; 		trem_free_hz <= 16'd5;
 			lfo_sync_div <= 16'd8;
 			trem_sync_div <= 16'd8;
-			lpf_val_out <= 16'd8; 			lpf_shift_out <= 4'd8;
+			lpf_val_out <= 16'd5; 			lpf_shift_out <= 4'd1;
 			res_val_out <= 16'd1; 			res_shift_out <= 4'd1;
 			detune_val_out <= 16'd5; 		detune_offset_out <= 32'd430;
 			delay_time_out <= 15'd16000;	delay_fb_out <= 4'd4;
@@ -156,10 +156,10 @@ module synth_controller (
 			// navigate between edit pages
 			if(btn_up_in == 1'b0 && btn_down_in == 1'b0) begin
 				edit_mode <= 4'd0;
-			end	else if(up_long) begin
+			end	else if(down_long) begin
 				if(edit_mode == 4'd8) edit_mode <= 4'd0;
 				else edit_mode <= edit_mode + 4'd1;
-			end else if(down_long) begin
+			end else if(up_long) begin
 				if(edit_mode == 4'd0) edit_mode <= 4'd8;
 				else edit_mode <= edit_mode - 4'd1;
 			end

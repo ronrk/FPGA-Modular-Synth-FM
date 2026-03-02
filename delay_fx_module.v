@@ -12,7 +12,7 @@ module delay_fx_module (
 );
 
 	wire [7:0] delayed_audio;	// wet audio
-	reg [10:0] sample_counter;	// counter to slow the sample time
+	reg [10:0] sample_counter;	// counter to slow the sample time , sample rate engine
 	reg [14:0] write_ptr;		// "record head"
 	reg [14:0] current_delay_time;
 	

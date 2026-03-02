@@ -68,7 +68,7 @@ module delay_fx_module (
 	);
 	
 	// clean master out
-	wire signed [9:0] final_mix_c = (drt_c /2) + (echo_c /2);
+	wire signed [9:0] final_mix_c = (dry_c /2) + (echo_c /2);
 	wire [7:0] final_out = (final_mix_c > 10'sd127) ? 8'd255 :
 						   (final_mix_c < -10'sd128) ? 8'd0 :
 						   (final_mix_c[7:0] + 8'd128);

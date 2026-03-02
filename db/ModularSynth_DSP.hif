@@ -93,42 +93,6 @@ fm_modulator:inst14
 
 # end
 # entity
-delay_fx_module
-# storage
-db|ModularSynth_DSP.(4).cnf
-db|ModularSynth_DSP.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-delay_fx_module.v
-cf50d247925a88c2e8d958d3618e9
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-delay_fx_module:inst13
-}
-# macro_sequence
-
-# end
-# entity
 delay_ram
 # storage
 db|ModularSynth_DSP.(5).cnf
@@ -6297,78 +6261,6 @@ dataa0
 
 # end
 # entity
-synth_controller
-# storage
-db|ModularSynth_DSP.(1).cnf
-db|ModularSynth_DSP.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-synth_controller.v
-e68b292851ac2e1e14f24cb5ead5c3fe
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-synth_controller:inst
-}
-# macro_sequence
-
-# end
-# entity
-svf_filter_module
-# storage
-db|ModularSynth_DSP.(11).cnf
-db|ModularSynth_DSP.(11).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-svf_filter_module.v
-45831015d9e1cffdbab6c9f4e8b820a7
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-svf_filter_module:inst11
-}
-# macro_sequence
-
-# end
-# entity
 pitch_mixer
 # storage
 db|ModularSynth_DSP.(15).cnf
@@ -6457,6 +6349,114 @@ AUTO
 }
 # hierarchies {
 |
+}
+# macro_sequence
+
+# end
+# entity
+synth_controller
+# storage
+db|ModularSynth_DSP.(1).cnf
+db|ModularSynth_DSP.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+synth_controller.v
+31fdc810c2c964e5b67f7267a5e553f
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+synth_controller:inst
+}
+# macro_sequence
+
+# end
+# entity
+delay_fx_module
+# storage
+db|ModularSynth_DSP.(4).cnf
+db|ModularSynth_DSP.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+delay_fx_module.v
+a3cd93b1e949a3b02b7b1e7060981a72
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+delay_fx_module:inst13
+}
+# macro_sequence
+
+# end
+# entity
+svf_filter_module
+# storage
+db|ModularSynth_DSP.(11).cnf
+db|ModularSynth_DSP.(11).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+svf_filter_module.v
+ee1bb1612922725e2320fed1ac424c8b
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+svf_filter_module:inst11
 }
 # macro_sequence
 

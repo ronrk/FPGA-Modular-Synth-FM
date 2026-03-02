@@ -2167,6 +2167,17 @@ sel[1] => _.IN0
 
 
 |ModularSynth_DSP|svf_filter_module:inst11
+clk => sample_counter[0].CLK
+clk => sample_counter[1].CLK
+clk => sample_counter[2].CLK
+clk => sample_counter[3].CLK
+clk => sample_counter[4].CLK
+clk => sample_counter[5].CLK
+clk => sample_counter[6].CLK
+clk => sample_counter[7].CLK
+clk => sample_counter[8].CLK
+clk => sample_counter[9].CLK
+clk => sample_counter[10].CLK
 clk => bp_reg[0].CLK
 clk => bp_reg[1].CLK
 clk => bp_reg[2].CLK
@@ -2227,6 +2238,17 @@ clk => lpf_reg[26].CLK
 clk => lpf_reg[27].CLK
 clk => lpf_reg[28].CLK
 clk => lpf_reg[29].CLK
+resetN => sample_counter[0].ACLR
+resetN => sample_counter[1].ACLR
+resetN => sample_counter[2].ACLR
+resetN => sample_counter[3].ACLR
+resetN => sample_counter[4].ACLR
+resetN => sample_counter[5].ACLR
+resetN => sample_counter[6].ACLR
+resetN => sample_counter[7].ACLR
+resetN => sample_counter[8].ACLR
+resetN => sample_counter[9].ACLR
+resetN => sample_counter[10].ACLR
 resetN => bp_reg[0].ACLR
 resetN => bp_reg[1].ACLR
 resetN => bp_reg[2].ACLR
@@ -2381,7 +2403,7 @@ audio_out[3] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 audio_out[4] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 audio_out[5] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 audio_out[6] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-audio_out[7] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+audio_out[7] <= Add8.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ModularSynth_DSP|vca_module:inst9
